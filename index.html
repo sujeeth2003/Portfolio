@@ -61,3 +61,35 @@ nav {
 }
 .nav-links a:hover { color: var(--accent2); }
 
+/* LAYOUT */
+main {
+  position: relative; z-index: 1;
+  max-width: 980px; margin: 0 auto; padding: 0 2rem 8rem;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; padding-top: 80px;
+}
+.hero-sub {
+  font-family: 'DM Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent2);
+  margin-bottom: 1.4rem; opacity: 0; animation: fadeUp .7s ease .1s forwards;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(3rem,8vw,6rem); line-height: .95;
+  letter-spacing: -.03em; color: var(--text);
+  opacity: 0; animation: fadeUp .7s ease .2s forwards;
+}
+.hero h1 .grad {
+  background: linear-gradient(120deg,var(--accent) 0%,var(--accent2) 60%,var(--accent3) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-desc {
+  max-width: 500px; margin-top: 1.8rem; font-size: 1rem; color: var(--dim);
+  opacity: 0; animation: fadeUp .7s ease .35s forwards;
+}
+.hero-cta {
+  margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: .9rem;
