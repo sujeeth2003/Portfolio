@@ -180,3 +180,21 @@ h2 {
 .exp-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s cubic-bezier(.4,0,.2,1); }
 .exp-card.open .exp-body { grid-template-rows: 1fr; }
 .exp-body-inner { overflow: hidden; }
+.exp-body-content { padding-top: 1.4rem; }
+.exp-sec-label {
+  font-family: 'DM Mono', monospace; font-size: .63rem;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--accent3);
+  margin: 1.2rem 0 .5rem;
+}
+.exp-sec-label:first-child { margin-top: 0; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.exp-bullets li {
+  font-size: .875rem; color: var(--dim); padding-left: 1.2rem;
+  position: relative; line-height: 1.55;
+}
+.exp-bullets li::before {
+  content: '▸'; position: absolute; left: 0;
+  color: var(--accent); font-size: .65rem; top: .25rem;
+}
+.exp-bullets strong { color: var(--text); font-weight: 500; }
+
