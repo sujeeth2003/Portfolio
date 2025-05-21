@@ -282,3 +282,19 @@ h2 {
 .edu-degree { font-size: .85rem; color: var(--dim); margin-top: .2rem; }
 .edu-meta { text-align: right; font-family: 'DM Mono', monospace; font-size: .7rem; color: var(--accent2); line-height: 1.6; }
 
+/* FOOTER */
+footer {
+  position: relative; z-index: 1; text-align: center; padding: 2rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+  font-family: 'DM Mono', monospace; font-size: .68rem; color: var(--muted); letter-spacing: .1em;
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
