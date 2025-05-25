@@ -47,3 +47,26 @@ const EXPERIENCE = [
         "Built a real-time ML pipeline processing 50+ simultaneous PLC/DAQ sensor channels during satellite subsystem tests.",
         "Extracted time-series features from 100 kHz sensor signals; trained <strong>Isolation Forest</strong> and <strong>LSTM autoencoder</strong> models to catch failures before they happened.",
         "Implemented in <strong>LabVIEW (G)</strong>, compiled to native x86, exploiting full CPU clock cycles for real-time inference.",
+        "Used a proprietary low-latency protocol to fuse multiple master/slave data streams at sub-millisecond latency for real-time decisioning."
+      ]},
+      { label: "Data Infrastructure & ML Tooling", bullets: [
+        "Built an <strong>AWS</strong> data pipeline (S3, Lambda, Athena, Boto3, Step Functions) with least-privilege IAM roles per function.",
+        "Configured a Windows Server as a long-term data lake — time sync and directory structure designed for process identification and retrieval.",
+        "Used the <strong>KDB/kdb+</strong> ML toolkit to prototype anomaly-detection models over tick-style time-series data."
+      ]}
+    ]
+  },
+  {
+    role: "Machine Learning Research Intern",
+    org: "NIT Calicut · India",
+    period: "2023",
+    sections: [
+      { label: "Reinforcement Learning & Control", bullets: [
+        "Trained RL agents in simulation and deployed learned policies to real-world control systems.",
+        "Reduced steady-state control error by <strong>17%</strong> through iterative environment modeling and policy evaluation.",
+        "Assisted in experiment design, data preprocessing, and metric-driven evaluation on hardware-in-the-loop setups."
+      ]}
+    ]
+  }
+];
+
