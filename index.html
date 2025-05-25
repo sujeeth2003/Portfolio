@@ -524,3 +524,22 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
       }
     }
 
+    // dots
+    for(let i = 0; i < N; i++){
+      const p = pts[i];
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = `hsla(${hue2},65%,70%,0.7)`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', resize, {passive:true});
+  resize();
+  frame();
+})();
+</script>
+</body>
+</html>
