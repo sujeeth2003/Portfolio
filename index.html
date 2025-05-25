@@ -492,3 +492,35 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     }));
   }
 
+  function frame(){
+    ctx.clearRect(0, 0, W, H);
+    hue = (hue + HUE_RATE) % 360;
+    const hue2 = (hue + 50) % 360;
+
+    // move
+    for(let i = 0; i < N; i++){
+      const p = pts[i];
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0 || p.x > W) p.vx *= -1;
+      if(p.y < 0 || p.y > H) p.vy *= -1;
+    }
+
+    // links
+    for(let i = 0; i < N; i++){
+      const a = pts[i];
+      for(let j = i+1; j < N; j++){
+        const b  = pts[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dSq = dx*dx + dy*dy;
+        if(dSq < LINK_SQ){
+          const t = 1 - dSq / LINK_SQ;
+          ctx.strokeStyle = `hsla(${hue},75%,65%,${(t * .32).toFixed(3)})`;
+          ctx.lineWidth   = t * 1.4;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
