@@ -377,3 +377,35 @@ footer {
     </div>
   </section>
 
+</main>
+
+<footer>© 2025 Sujeeth Sukumar &nbsp;·&nbsp; sujeeth@umd.edu</footer>
+
+<script src="projects.js"></script>
+<script>
+/* ══════════════════════════════════════════
+   BUILD EXPERIENCE
+══════════════════════════════════════════ */
+const expList = document.getElementById('exp-list');
+EXPERIENCE.forEach(job => {
+  const card = document.createElement('div');
+  card.className = 'glass-card exp-card reveal';
+  card.innerHTML = `
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">${job.role}</div>
+        <div class="exp-meta">${job.org} &nbsp;·&nbsp; ${job.period}</div>
+      </div>
+      <div class="exp-toggle">+</div>
+    </div>
+    <div class="exp-body">
+      <div class="exp-body-inner">
+        <div class="exp-body-content">
+          ${job.sections.map(s=>`
+            <div class="exp-sec-label">${s.label}</div>
+            <ul class="exp-bullets">${s.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+          `).join('')}
+        </div>
+      </div>
+    </div>`;
+  card.addEventListener('click', () => {
