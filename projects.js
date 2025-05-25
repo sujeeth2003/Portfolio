@@ -70,3 +70,35 @@ const EXPERIENCE = [
   }
 ];
 
+const PROJECTS = [
+  { year:"2026", status:"In Progress", title:"Eureka — Idea Lineage Graph", teaser:"Ingests research papers and builds a lineage graph — each node holds the idea it built on and what it disproved.", tags:["NLP","Graph","Embeddings","Clustering"], bullets:[
+    "Analyzes papers, orders them chronologically, and models the transformation between one idea and the next — the same way the gold-foil experiment disproving the plum-pudding model led to the Bohr model.",
+    "Extracts and clusters ideas from paper text/citations to place each paper into an intellectual 'chain'.",
+    "Goal: a navigable map that lets a new researcher see where a line of thought came from and where it's headed.",
+    "Builds on an earlier normalized-SQL version of this idea (see 'Eureka — Research Lineage Intelligence Platform')."
+  ]},
+  { year:"2026", status:"In Progress", title:"Sparse Autoencoder for LLM Hidden-State Features", teaser:"Trains a sparse autoencoder over LLM hidden states to extract interpretable, monosemantic features.", tags:["PyTorch","Interpretability","SAE","LLM"], bullets:[
+    "Captures hidden-state activations from a transformer's residual stream during inference.",
+    "Trains a sparse autoencoder (L1-regularized reconstruction) to decompose dense activations into sparse, more interpretable feature directions.",
+    "Aimed at surfacing individual semantic/behavioral features buried in superposition inside the hidden state."
+  ]},
+  { year:"2026", title:"Algorithmic Trading & Portfolio Optimization", teaser:"Walk-forward backtesting achieving 12% annual return with a Gaussian Hidden Markov Model for regime detection.", tags:["Python","HMM","Quant Finance","Time-Series"], bullets:[
+    "Built automated market data ingestion via Polygon API for SPY, QQQ, AAPL with rolling 2-year walk-forward windows.",
+    "Implemented Moving Average Momentum, Mean Reversion, and a <strong>Gaussian HMM from scratch</strong> (Forward-Backward + EM) for bull/bear classification.",
+    "Incorporated transaction costs (0.1%) and slippage (0.05%) for realistic capital evolution.",
+    "<strong>12% annualized return</strong> with controlled drawdown and competitive Sharpe vs. buy-and-hold benchmark."
+  ]},
+  { year:"2025", title:"Multi-Agent Analytics Orchestration Platform", teaser:"Scalable Planner/Retriever/Executor/Critic system using LangGraph, Ray, Redis, FastAPI, and Docker.", tags:["LangGraph","Ray","Redis","FastAPI","Docker"], bullets:[
+    "Orchestrated agents using LangGraph with vector-based memory workflows.",
+    "Enabled concurrent execution via Ray and Redis; monitored latency and failure rates.",
+    "Containerized inference services with FastAPI and Docker for modular deployment."
+  ]},
+  { year:"2026", title:"Eureka — Research Lineage Intelligence Platform", teaser:"Relational system modeling intellectual lineage, mentorship influence, and industry adoption in normalized 3NF schema.", tags:["SQLite","SQL","Graph Analytics","3NF"], bullets:[
+    "Engineered 5-entity normalized schema (3NF): Mentors, Authors, Papers, PaperAuthors, CompanyAdoption.",
+    "Self-referential paper derivation for intellectual ancestry modeling via self-join foreign key.",
+    "Advanced SQL analytics: mentor productivity, avg citations by field, industry adoption, intellectual lineage.",
+    "Outlined graph extension: centrality, community detection, logistic regression adoption prediction."
+  ]},
+  { year:"2025", title:"Anime Recommendation System", teaser:"Hybrid engine: ALS collaborative filtering + TF-IDF content embeddings over 73k users × 12k items. 38% RMSE reduction.", tags:["ALS","TF-IDF","Collaborative Filtering","Sparse Matrices"], bullets:[
+    "Processed 73k users × 12k items into sparse implicit-feedback interaction matrices.",
+    "Trained ALS-based CF; achieved <strong>38% RMSE reduction</strong> over popularity baseline.",
