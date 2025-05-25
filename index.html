@@ -456,3 +456,21 @@ const obs = new IntersectionObserver(
 );
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+/* ══════════════════════════════════════════
+   QUANTUM BACKGROUND
+   Preserves original concept: particles
+   connected by color-shifting lines.
+   Optimised: single rAF loop, hue via time
+   variable (no slow CSS transitions), squared
+   distance check avoids sqrt per pair.
+══════════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('quantum');
+  const ctx    = canvas.getContext('2d');
+
+  const N           = 72;    // particle count
+  const LINK        = 145;   // link distance px
+  const LINK_SQ     = LINK * LINK;
+  const BASE_SPEED  = 0.38;
+  const HUE_RATE    = 0.05;  // °/frame — smooth palette shift
+
