@@ -441,3 +441,18 @@ PROJECTS.forEach(p => {
     </div>
     <div class="proj-hint">hover to expand ↓</div>`;
   card.querySelectorAll('.proj-link').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
+  card.addEventListener('mouseenter', () => card.classList.add('open'));
+  card.addEventListener('mouseleave', () => card.classList.remove('open'));
+  card.addEventListener('click', () => card.classList.toggle('open'));
+  projGrid.appendChild(card);
+});
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════ */
+const obs = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+  { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+);
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
