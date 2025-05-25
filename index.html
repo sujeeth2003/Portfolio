@@ -474,3 +474,21 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   const BASE_SPEED  = 0.38;
   const HUE_RATE    = 0.05;  // °/frame — smooth palette shift
 
+  let W, H, pts, hue = 200;
+
+  function resize(){
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    init();
+  }
+
+  function init(){
+    pts = Array.from({length: N}, () => ({
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      vx: (Math.random() - .5) * BASE_SPEED * 2,
+      vy: (Math.random() - .5) * BASE_SPEED * 2,
+      r:  Math.random() * 1.8 + .6
+    }));
+  }
+
