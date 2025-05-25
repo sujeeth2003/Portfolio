@@ -409,3 +409,35 @@ EXPERIENCE.forEach(job => {
       </div>
     </div>`;
   card.addEventListener('click', () => {
+    const open = card.classList.contains('open');
+    document.querySelectorAll('.exp-card.open').forEach(c=>c.classList.remove('open'));
+    if (!open) card.classList.add('open');
+  });
+  expList.appendChild(card);
+});
+
+/* ══════════════════════════════════════════
+   BUILD PROJECTS
+══════════════════════════════════════════ */
+const projGrid = document.getElementById('projects-grid');
+PROJECTS.forEach(p => {
+  const card = document.createElement('div');
+  card.className = 'glass-card proj-card reveal';
+  card.innerHTML = `
+    <div class="proj-glow"></div>
+    <div class="proj-year">${p.year}${p.status ? `<span class="proj-status">${p.status}</span>` : ''}</div>
+    <div class="proj-title">${p.title}</div>
+    <div class="proj-teaser">${p.teaser}</div>
+    <div class="proj-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    <div class="proj-expand">
+      <div class="proj-expand-inner">
+        <div class="proj-expand-content">
+          <ul class="proj-bullets">${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+          ${p.repo
+            ? `<a class="proj-link" href="${p.repo}" target="_blank" rel="noopener">View code on GitHub ↗</a>`
+            : `<span class="proj-link-soon">code coming soon</span>`}
+        </div>
+      </div>
+    </div>
+    <div class="proj-hint">hover to expand ↓</div>`;
+  card.querySelectorAll('.proj-link').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
