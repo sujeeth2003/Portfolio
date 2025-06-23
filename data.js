@@ -127,3 +127,26 @@ const FLAGSHIPS = {
       "<strong>Models:</strong> Trained Isolation Forest and LSTM autoencoders on extracted time-series features to catch failures before they happened, implemented in LabVIEW compiled to native x86.",
       "<strong>Tooling:</strong> Built a custom desktop app for live FFT/filter analysis, manual device control, and bidirectional Modbus communication with the PLCs.",
     ],
+    stack:["LabVIEW","Isolation Forest","LSTM Autoencoder","PLC / Modbus"],
+    linkText:"Ask for a walkthrough", linkHref:"mailto:sujeeth@umd.edu",
+  },
+};
+
+/* ---- secondary projects per field, rendered below the flagship ---- */
+const FIELD_PROJECTS = {
+
+  systems: [
+    { year:"2025", title:"Multi-Producer Market Data Feed Handler", teaser:"UDP feed handler optimized across six versions from a mutex queue to kernel-bypass, core-pinned ingestion.", tags:["C++","Atomics","AF_PACKET","Kernel Bypass"], bullets:[
+      "v1&rarr;v2: Diagnosed futex sleep/wake round-trips as the tail-latency bottleneck, replaced with a lock-free SPSC ring buffer using memory_order_release/acquire.",
+      "v3: Found false sharing between head/tail atomics with perf c2c cache-to-cache profiling, fixed with alignas(64) padding.",
+      "v4: Gave each producer its own SPSC ring instead of a CAS-based MPSC queue, avoiding the ABA problem entirely.",
+      "v5-v6: Kernel-bypass via AF_PACKET/PACKET_MMAP, then core pinning, isolated CPUs, and huge pages to cut TLB misses."
+    ]},
+    { year:"2025", title:"Custom Low-Overhead Latency Tracing Tool", teaser:"RDTSC-based, per-thread tracer built to measure the feed handler and matching engine at nanosecond granularity.", tags:["C++","RDTSC","thread_local","NIC Timestamping"], bullets:[
+      "Replaced std::chrono and string labels with the RDTSC hardware cycle counter and integer IDs, cutting per-call overhead to single-digit nanoseconds.",
+      "Gave each thread its own trace buffer to remove false sharing, merging and sorting off the hot path at shutdown.",
+      "Correlated NIC hardware packet-arrival timestamps (SO_TIMESTAMPING) against application-level traces to isolate true wire-to-application latency.",
+      "Quantified tracer overhead against perf and VTune with a concrete ns/iteration comparison."
+    ]},
+  ],
+
