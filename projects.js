@@ -102,3 +102,35 @@ const PROJECTS = [
   { year:"2025", title:"Anime Recommendation System", teaser:"Hybrid engine: ALS collaborative filtering + TF-IDF content embeddings over 73k users × 12k items. 38% RMSE reduction.", tags:["ALS","TF-IDF","Collaborative Filtering","Sparse Matrices"], bullets:[
     "Processed 73k users × 12k items into sparse implicit-feedback interaction matrices.",
     "Trained ALS-based CF; achieved <strong>38% RMSE reduction</strong> over popularity baseline.",
+    "Integrated TF-IDF content embeddings (genres, metadata) into hybrid scoring.",
+    "Evaluated using Precision@K and Recall@K; modularized for scalable experimentation."
+  ]},
+  { year:"2025", title:"User Engagement & Retention Modeling", teaser:"ML analytics over 70k+ MyAnimeList users — K-Means segmentation and Gradient Boosting model (ROC-AUC ≈ 0.87).", tags:["Gradient Boosting","K-Means","Cohort Analysis","Feature Eng"], bullets:[
+    "Designed time-based cohort analysis for onboarding and long-term engagement phases.",
+    "Engineered completion rate, interaction intensity, temporal consistency, and content diversity features.",
+    "Applied K-Means clustering to segment users into interpretable behavioral cohorts.",
+    "Gradient Boosting retention model: <strong>ROC-AUC ≈ 0.87</strong>."
+  ]},
+  { year:"2025", title:"Remaining Useful Life Prediction", teaser:"Predictive maintenance on NASA Turbofan dataset — LSTM, RF, Gradient Boosting achieving RMSE ≈ 13 cycles.", tags:["LSTM","Predictive Maintenance","Time-Series","PyTorch"], bullets:[
+    "Cleaned time-series data from 100+ engines across multiple operating cycles.",
+    "Engineered rolling-window degradation features and health indicators for lifecycle modeling.",
+    "Trained RF, Gradient Boosting, and LSTM models; achieved <strong>RMSE ≈ 13 cycles</strong>.",
+    "Validated using MAE and early-warning reliability metrics for maintenance decision support."
+  ]},
+  { year:"2025", title:"AI Image Generator Classification", teaser:"End-to-end pipeline classifying AI images by source model (SD 1.5, SDXL-Turbo, PixArt) via handcrafted visual features.", tags:["PyTorch","OpenCV","scikit-image","Random Forest"], bullets:[
+    "Generated labeled dataset using DiffusionPipeline with multiple prompts and controlled inference steps.",
+    "Feature pipeline: RGB/HSV stats, Laplacian sharpness, Sobel edge strength, FFT energy, entropy, brightness, contrast.",
+    "Trained Random Forest (300 trees) to predict generator model from handcrafted features.",
+    "Designed reproducible Colab workflow with dataset export, CSV feature table, stratified split."
+  ]},
+  { year:"2025", title:"Real vs AI Image Classification", teaser:"XGBoost classifier on 15k+ images detecting AI-generated imagery with 92% test accuracy.", tags:["XGBoost","OpenCV","Computer Vision","Feature Eng"], bullets:[
+    "Extracted RGB statistics, sharpness, contrast, and texture features from 15k+ images.",
+    "Trained RF and XGBoost classifiers achieving <strong>92% test accuracy</strong>.",
+    "Confusion-matrix-driven error analysis to improve robustness across generators."
+  ]},
+  { year:"2025", title:"SmartSpend AI — Financial Analytics", teaser:"LLM-assisted tool with merchant categorization, expense clustering, and natural-language spending insights.", tags:["LLM","LangChain","Pandas","NLP"], bullets:[
+    "Automated merchant categorization and expense clustering using Pandas and rule-based NLP.",
+    "Integrated LLM reasoning to generate natural-language insights from tabular spending data.",
+    "Built reproducible batch pipelines for monthly trend analysis, reporting, and visualization."
+  ]},
+  { year:"2025", title:"DCGAN — Image Generation", teaser:"Deep Convolutional GAN from scratch in PyTorch — ConvTranspose2D, BatchNorm, LeakyReLU — 1000 epochs on MNIST.", tags:["PyTorch","GAN","Deep Learning","MNIST"], bullets:[
