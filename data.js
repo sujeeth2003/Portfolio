@@ -32,3 +32,17 @@ const SITE = {
     desc:"One flagship build per track. Click the card in front, or wait for the one you want.",
   },
 
+  /* eyebrow/title shown at the top of each opened field, plus the
+     short label used in the nav bar and the hero pills */
+  fields:{
+    systems:{ nav:"Systems", pill:"Low-Latency Systems", eyebrow:"Arc 1 - Low-Latency Systems", title:"C++, from correct to fast" },
+    hardware:{ nav:"Hardware", pill:"RTL &amp; Hardware", eyebrow:"Arc 2 - RTL &amp; Hardware", title:"A CPU, verified the way a real one has to be" },
+    quant:{ nav:"Quant", pill:"Quant &amp; Trading", eyebrow:"Arc 3 - Quant &amp; Trading", title:"Regime detection, backtested honestly" },
+    ml:{ nav:"ML", pill:"Applied ML", eyebrow:"Arc 4 - Applied ML &amp; GenAI", title:"Reading the paper, then rebuilding the model" },
+    data:{ nav:"Data", pill:"Data &amp; Industrial", eyebrow:"Arc 5 - Data Engineering &amp; Industrial Systems", title:"From 100 kHz sensor data to production pipelines" },
+  },
+
+  skills:{ eyebrow:"Skills", title:"Technical stack" },
+  education:{ eyebrow:"Education", title:"Academic background" },
+  learnedFrom:{ eyebrow:"Credit where it's due", title:"YouTube channels I learned from" },
+
