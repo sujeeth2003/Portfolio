@@ -134,3 +134,20 @@ const PROJECTS = [
     "Built reproducible batch pipelines for monthly trend analysis, reporting, and visualization."
   ]},
   { year:"2025", title:"DCGAN — Image Generation", teaser:"Deep Convolutional GAN from scratch in PyTorch — ConvTranspose2D, BatchNorm, LeakyReLU — 1000 epochs on MNIST.", tags:["PyTorch","GAN","Deep Learning","MNIST"], bullets:[
+    "Implemented Generator + Discriminator from scratch using ConvTranspose2D, BatchNorm, LeakyReLU.",
+    "Trained with adversarial BCE loss, alternating optimization, and careful label handling.",
+    "Applied weight initialization (Normal σ=0.02), Adam (β₁=0.5), and latent-space sampling best practices.",
+    "Monitored loss balance and visual sample quality across 1000 epochs on GPU."
+  ]},
+  { year:"2025", title:"Time-Series Anomaly Detection", teaser:"Unsupervised + supervised anomaly detection on industrial multivariate sensor data, optimized for false-positive rate and detection latency.", tags:["Isolation Forest","LSTM Autoencoder","Feature Eng","AWS"], bullets:[
+    "Engineered rolling statistical and frequency-domain features from multivariate sensor streams.",
+    "Trained Isolation Forest and LSTM autoencoder for operational monitoring.",
+    "Evaluation designed around false-positive rate and detection latency to reflect production constraints."
+  ]},
+  { year:"2026", title:"Data-Driven Portfolio Optimization", teaser:"Optimized portfolio site via Google Analytics behavioral data — bounce rate reduction and A/B content iterations.", tags:["Google Analytics","UX Optimization","A/B Testing"], bullets:[
+    "Implemented GA tracking for session duration, bounce rate, click-through paths, and device segmentation.",
+    "Analyzed user flow, scroll depth, and interaction metrics to identify drop-off and friction.",
+    "Restructured project ordering, improved CTA placement, optimized layout from engagement heat patterns.",
+    "Tested section ordering and headline structures to maximize GitHub/LinkedIn click-through."
+  ]}
+];
