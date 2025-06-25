@@ -203,3 +203,21 @@ const FIELD_PROJECTS = {
   ],
 };
 
+/* ---- technical skills grid ---- */
+const SKILLS = [
+  { label:"Systems / Low-Latency", items:"C++, atomics, lock-free structures, AVX2, kernel bypass, core pinning" },
+  { label:"RTL / Hardware",        items:"SystemVerilog, UVM, SVA, formal verification, AXI-Lite, CDC" },
+  { label:"Quant / Finance",       items:"HMM regime detection, backtesting, walk-forward validation, Python" },
+  { label:"Deep Learning",         items:"PyTorch, TensorFlow, Hugging Face, transformer architectures" },
+  { label:"LLM Systems",           items:"LangChain, LangGraph, RAG, prompt engineering" },
+  { label:"Data Engineering",      items:"AWS (S3, Lambda, Athena, Step Functions), PostgreSQL, MongoDB, Redis" },
+  { label:"Industrial Systems",    items:"PLC programming (Siemens, Rockwell), SCADA/HMI, DAQ, sensors" },
+  { label:"Languages",             items:"Python, C++, SQL, MATLAB, Embedded C, Verilog/SystemVerilog" },
+];
+
+/* ---- education ---- */
+const EDUCATION = [
+  { school:"University of Maryland, College Park", degree:"M.S. in Data Science", meta:"2025 - 2027", place:"College Park, MD" },
+  { school:"Anna University", degree:"B.E. in Electronics & Instrumentation", meta:"2020 - 2024", place:"Chennai, India" },
+];
+
