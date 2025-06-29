@@ -155,14 +155,20 @@ main{position:relative;z-index:1}
   background:linear-gradient(180deg,color-mix(in srgb,var(--f) 12%,transparent),transparent 55%);
 }
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 3rem;
-  background: rgba(5,8,15,0.55);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+/* field detail panels - hidden until picked from the orbit selector */
+.field-detail{display:none}
+.field-detail.open{display:block;animation:fieldFadeIn .5s ease}
+@keyframes fieldFadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* deck selector - rectangular cards circling a center point, one up front at a time */
+#explore{transition:opacity .4s,max-height .4s;overflow:hidden}
+#explore.collapsed{max-height:0;opacity:0;padding:0;border-top:none;pointer-events:none}
+.back-to-explore{
+  display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1.2rem;
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.04em;
+  padding:.5rem .9rem;border-radius:100px;border:1px solid var(--line-strong);
+  background:rgba(255,255,255,.6);backdrop-filter:blur(6px);color:var(--dim);
+  cursor:pointer;transition:transform .2s,color .2s,border-color .2s;
 }
 .nav-logo {
   font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem;
