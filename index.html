@@ -98,9 +98,38 @@ nav{
   .nav-links{display:none}
 }
 
-/* CANVAS */
-#quantum {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+main{position:relative;z-index:1}
+
+/* HERO */
+.hero{
+  min-height:100dvh;display:flex;flex-direction:column;justify-content:center;
+  padding:6rem 2rem 3rem;max-width:1120px;margin:0 auto;
+}
+.hero-eyebrow{
+  font-family:'JetBrains Mono', monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1.3rem;text-shadow:0 1px 12px rgba(238,243,249,.9),0 1px 2px rgba(238,243,249,.9);
+  opacity:0;animation:fadeUp .7s ease .1s forwards;
+}
+.hero h1{
+  font-family:'Zen Kaku Gothic New', sans-serif;font-weight:800;font-size:clamp(2.4rem,5.4vw,4rem);
+  line-height:1.08;letter-spacing:-.03em;max-width:17ch;text-shadow:0 2px 24px rgba(238,243,249,.85);
+  opacity:0;animation:fadeUp .7s ease .2s forwards;
+}
+.hero-desc{
+  max-width:56ch;margin-top:1.6rem;font-size:1.05rem;color:var(--dim);text-shadow:0 1px 16px rgba(238,243,249,.9);
+  opacity:0;animation:fadeUp .7s ease .35s forwards;
+}
+.hero-fields{
+  margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:.6rem;
+  opacity:0;animation:fadeUp .7s ease .48s forwards;
+}
+.field-pill{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'JetBrains Mono', monospace;font-size:.72rem;letter-spacing:.03em;
+  padding:.55rem 1rem;border-radius:100px;border:1px solid var(--line);
+  text-decoration:none;color:var(--text);background:rgba(255,255,255,.55);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:border-color .2s,transform .2s,background .2s;
 }
 
 /* NAV */
