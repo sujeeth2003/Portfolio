@@ -170,9 +170,13 @@ main{position:relative;z-index:1}
   background:rgba(255,255,255,.6);backdrop-filter:blur(6px);color:var(--dim);
   cursor:pointer;transition:transform .2s,color .2s,border-color .2s;
 }
-.nav-logo {
-  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem;
-  color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+.back-to-explore:hover{transform:translateX(-2px);color:var(--text);border-color:var(--f,var(--accent))}
+.deck-wrap{position:relative;height:210px;margin:0 auto 1rem;perspective:900px}
+.deck-card{
+  position:absolute;top:50%;left:50%;width:220px;height:145px;
+  border-radius:14px;overflow:hidden;border:2px solid var(--f);cursor:pointer;padding:0;
+  background:var(--bg-raise);box-shadow:0 14px 34px rgba(24,34,51,.2);
+  transition:transform .7s cubic-bezier(.4,0,.2,1),opacity .7s,box-shadow .3s;
 }
 .nav-logo em { color: var(--accent2); font-style: normal; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
