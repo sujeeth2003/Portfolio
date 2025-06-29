@@ -74,6 +74,28 @@ body::after{
 .mascot-bubble.show{opacity:1;transform:none}
 @media (max-width:640px){.mascot-bubble{right:6.4rem;bottom:11rem;max-width:120px;font-size:.65rem;padding:.45rem .6rem}}
 
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 2rem}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;background:rgba(255,255,255,.62);
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo{font-family:'Zen Kaku Gothic New', sans-serif;font-weight:800;font-size:1rem;text-decoration:none;letter-spacing:-.02em}
+.nav-logo em{color:var(--accent);font-style:normal}
+.nav-links{display:flex;gap:1.6rem;list-style:none}
+.nav-links a{
+  font-family:'JetBrains Mono', monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;color:var(--dim);transition:color .2s;white-space:nowrap;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-toggle{display:none}
+@media (max-width:860px){
+  .nav-links{display:none}
 }
 
 /* CANVAS */
