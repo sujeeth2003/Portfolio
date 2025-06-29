@@ -335,9 +335,9 @@ main{position:relative;z-index:1}
 .contact-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem}
 footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px solid var(--line);font-family:'JetBrains Mono', monospace;font-size:.66rem;color:var(--muted);letter-spacing:.08em}
 
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+.reveal{transition:opacity .6s ease,transform .6s ease}
+.reveal.pre-reveal{opacity:0;transform:translateY(20px)}
+.reveal.visible{opacity:1;transform:none}
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
