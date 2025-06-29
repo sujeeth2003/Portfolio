@@ -34,15 +34,30 @@
 
   --deck-radius:1;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.7;
-  overflow-x: hidden;
+@media (max-width:900px){:root{--deck-radius:.62}}
+@media (max-width:560px){:root{--deck-radius:.4}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Inter',sans-serif;font-weight:300;line-height:1.7;
+  overflow-x:hidden;
+}
+/* site-wide background photo, fixed so it stays put while panels scroll over it -
+   kept at a modest size and padded with a matching board-blue so it reads as a
+   framed illustration instead of an oversized, text-obscuring backdrop */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;background-color:#b7c7db;
+  background-image:url('assets/hero-bg.jpg');
+  background-repeat:no-repeat;background-position:center;background-attachment:fixed;
+  background-size:Cover;
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(238,243,249,.38),rgba(238,243,249,.62) 35%,rgba(238,243,249,.8));
+}
+::selection{background:rgba(47,111,168,.28);color:#fff}
+
 }
 
 /* CANVAS */
