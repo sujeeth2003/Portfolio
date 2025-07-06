@@ -660,17 +660,20 @@ if(skillsGrid){
   `).join('');
 }
 
-/* ══════════════════════════════════════════
-   QUANTUM BACKGROUND
-   Preserves original concept: particles
-   connected by color-shifting lines.
-   Optimised: single rAF loop, hue via time
-   variable (no slow CSS transitions), squared
-   distance check avoids sqrt per pair.
-══════════════════════════════════════════ */
-(function(){
-  const canvas = document.getElementById('quantum');
-  const ctx    = canvas.getContext('2d');
+/* ═══ education, from EDUCATION in data.js ═══ */
+const eduList=document.getElementById('edu-list');
+if(eduList){
+  eduList.innerHTML=EDUCATION.map(e=>`
+    <div class="edu-row">
+      <div class="edu-icon">&#127891;</div>
+      <div class="edu-main">
+        <div class="edu-school">${e.school}</div>
+        <div class="edu-degree">${e.degree}</div>
+      </div>
+      <div class="edu-meta">${e.meta}<br>${e.place}</div>
+    </div>
+  `).join('');
+}
 
   const N           = 72;    // particle count
   const LINK        = 145;   // link distance px
