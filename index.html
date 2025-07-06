@@ -675,11 +675,16 @@ if(eduList){
   `).join('');
 }
 
-  const N           = 72;    // particle count
-  const LINK        = 145;   // link distance px
-  const LINK_SQ     = LINK * LINK;
-  const BASE_SPEED  = 0.38;
-  const HUE_RATE    = 0.05;  // °/frame — smooth palette shift
+/* ═══ YouTube channels credited, from YT_CHANNELS in data.js ═══ */
+const ytList=document.getElementById('yt-channels');
+if(ytList){
+  ytList.innerHTML=YT_CHANNELS.map(c=>`
+    <a class="field-pill yt-pill" href="${c.url}" target="_blank" rel="noopener">
+      ${c.thumb?`<img src="${c.thumb}" alt="" class="yt-thumb">`:`<span class="dot" style="background:var(--accent)"></span>`}
+      ${c.name}
+    </a>
+  `).join('');
+}
 
   let W, H, pts, hue = 200;
 
