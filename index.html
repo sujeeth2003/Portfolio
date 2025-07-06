@@ -686,7 +686,16 @@ if(ytList){
   `).join('');
 }
 
-  let W, H, pts, hue = 200;
+/* ticker */
+const tickerItems = [
+  "IMC PROSPERITY 4 · RANK 155 MANUAL TRADING",
+  "12% ANNUALIZED RETURN · WALK-FORWARD BACKTEST",
+  "GAUSSIAN HMM · FORWARD-BACKWARD FROM SCRATCH",
+  "93RD PERCENTILE · JEE MATHEMATICS",
+];
+const trackEl = document.getElementById('ticker-track');
+const full = tickerItems.map(t=>`<span>${t}</span>`).join('<span style="color:var(--muted)">&nbsp;&nbsp;/&nbsp;&nbsp;</span>');
+trackEl.innerHTML = full + '<span style="color:var(--muted)">&nbsp;&nbsp;/&nbsp;&nbsp;</span>' + full;
 
   function resize(){
     W = canvas.width  = window.innerWidth;
