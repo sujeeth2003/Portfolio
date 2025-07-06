@@ -643,12 +643,13 @@ Object.keys(FLAGSHIPS).forEach(fieldId=>{
       <div class="flag-stats">${f.stats.map(s=>`<div class="flag-stat"><b>${s.value}</b><span>${s.label}</span></div>`).join('')}</div>
       <ul class="flag-bullets">${f.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
     </div>
-    <div class="proj-hint">hover to expand ↓</div>`;
-  card.querySelectorAll('.proj-link').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
-  card.addEventListener('mouseenter', () => card.classList.add('open'));
-  card.addEventListener('mouseleave', () => card.classList.remove('open'));
-  card.addEventListener('click', () => card.classList.toggle('open'));
-  projGrid.appendChild(card);
+    <div class="flag-side">
+      <div>
+        <div class="stack-label">Stack</div>
+        <div class="flag-stack">${f.stack.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      </div>
+      <a class="flag-link" href="${f.linkHref}"${isExternal?' target="_blank" rel="noopener"':''}>${f.linkText}</a>
+    </div>`;
 });
 
 /* ══════════════════════════════════════════
