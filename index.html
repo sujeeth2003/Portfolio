@@ -629,6 +629,19 @@ renderMini(document.getElementById('quant-grid'), FIELD_PROJECTS.quant);
 renderMini(document.getElementById('ml-grid'), FIELD_PROJECTS.ml);
 renderMini(document.getElementById('data-grid'), FIELD_PROJECTS.data);
 
+/* ═══ flagship project per field, from FLAGSHIPS in data.js ═══ */
+Object.keys(FLAGSHIPS).forEach(fieldId=>{
+  const el=document.getElementById('flagship-'+fieldId);
+  if(!el) return;
+  const f=FLAGSHIPS[fieldId];
+  const isExternal=/^https?:/.test(f.linkHref);
+  el.innerHTML=`
+    <div>
+      <div class="flag-badge">Flagship build</div>
+      <h3>${f.title}</h3>
+      <p class="lede">${f.lede}</p>
+      <div class="flag-stats">${f.stats.map(s=>`<div class="flag-stat"><b>${s.value}</b><span>${s.label}</span></div>`).join('')}</div>
+      <ul class="flag-bullets">${f.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
     </div>
     <div class="proj-hint">hover to expand ↓</div>`;
   card.querySelectorAll('.proj-link').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
