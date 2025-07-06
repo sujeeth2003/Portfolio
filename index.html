@@ -652,14 +652,13 @@ Object.keys(FLAGSHIPS).forEach(fieldId=>{
     </div>`;
 });
 
-/* ══════════════════════════════════════════
-   SCROLL REVEAL
-══════════════════════════════════════════ */
-const obs = new IntersectionObserver(
-  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-  { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
-);
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+/* ═══ skills grid, from SKILLS in data.js ═══ */
+const skillsGrid=document.getElementById('skills-grid');
+if(skillsGrid){
+  skillsGrid.innerHTML=SKILLS.map(s=>`
+    <div class="card skill-block"><div class="skill-label">${s.label}</div><div class="skill-items">${s.items}</div></div>
+  `).join('');
+}
 
 /* ══════════════════════════════════════════
    QUANTUM BACKGROUND
