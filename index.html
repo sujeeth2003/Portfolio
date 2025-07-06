@@ -555,37 +555,21 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
 <script src="data.js"></script>
 <script src="rem-dialogues.js"></script>
 <script>
-/* ══════════════════════════════════════════
-   BUILD EXPERIENCE
-══════════════════════════════════════════ */
-const expList = document.getElementById('exp-list');
-EXPERIENCE.forEach(job => {
-  const card = document.createElement('div');
-  card.className = 'glass-card exp-card reveal';
-  card.innerHTML = `
-    <div class="exp-header">
-      <div>
-        <div class="exp-role">${job.role}</div>
-        <div class="exp-meta">${job.org} &nbsp;·&nbsp; ${job.period}</div>
-      </div>
-      <div class="exp-toggle">+</div>
-    </div>
-    <div class="exp-body">
-      <div class="exp-body-inner">
-        <div class="exp-body-content">
-          ${job.sections.map(s=>`
-            <div class="exp-sec-label">${s.label}</div>
-            <ul class="exp-bullets">${s.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
-          `).join('')}
-        </div>
-      </div>
-    </div>`;
-  card.addEventListener('click', () => {
-    const open = card.classList.contains('open');
-    document.querySelectorAll('.exp-card.open').forEach(c=>c.classList.remove('open'));
-    if (!open) card.classList.add('open');
-  });
-  expList.appendChild(card);
+/* hydrate every plain-text string from SITE (data.js) */
+const FIELD_ID_LIST=Object.keys(SITE.fields);
+document.getElementById('nav-logo').innerHTML=`<em>${SITE.name[0]}</em>${SITE.name.slice(1)}`;
+document.getElementById('nav-links').innerHTML=
+  `<li><a href="#explore">${SITE.nav.explore}</a></li>` +
+  FIELD_ID_LIST.map(id=>`<li><a href="#${id}">${SITE.fields[id].nav}</a></li>`).join('') +
+  `<li><a href="#contact">${SITE.nav.contact}</a></li>`;
+
+document.getElementById('hero-eyebrow').innerHTML=SITE.hero.eyebrow;
+document.getElementById('hero-title').textContent=SITE.hero.title;
+document.getElementById('hero-desc').textContent=SITE.hero.desc;
+document.getElementById('hero-fields').innerHTML=FIELD_ID_LIST.map(id=>
+  `<a class="field-pill" href="#${id}"><span class="dot" style="background:var(--f-${id})"></span>${SITE.fields[id].pill}</a>`
+).join('');
+
 });
 
 /* ══════════════════════════════════════════
