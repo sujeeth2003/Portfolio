@@ -612,6 +612,23 @@ function renderMini(container, list, dotVar){
       <div class="mini-top">
         <div class="mini-year">${p.year}</div>
       </div>
+      <div class="mini-title">${p.title}</div>
+      <div class="mini-teaser">${p.teaser}</div>
+      <div class="mini-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      <div class="mini-expand"><div class="mini-expand-inner"><div class="mini-expand-content">
+        <ul class="mini-bullets">${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      </div></div></div>`;
+    card.addEventListener('click',()=>card.classList.toggle('open'));
+    container.appendChild(card);
+  });
+}
+
+renderMini(document.getElementById('systems-grid'), FIELD_PROJECTS.systems);
+renderMini(document.getElementById('hardware-grid'), FIELD_PROJECTS.hardware);
+renderMini(document.getElementById('quant-grid'), FIELD_PROJECTS.quant);
+renderMini(document.getElementById('ml-grid'), FIELD_PROJECTS.ml);
+renderMini(document.getElementById('data-grid'), FIELD_PROJECTS.data);
+
     </div>
     <div class="proj-hint">hover to expand ↓</div>`;
   card.querySelectorAll('.proj-link').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
