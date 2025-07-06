@@ -584,6 +584,11 @@ document.getElementById('explore-eyebrow').textContent=SITE.explore.eyebrow;
 document.getElementById('explore-title').textContent=SITE.explore.title;
 document.getElementById('explore-desc').textContent=SITE.explore.desc;
 
+FIELD_ID_LIST.forEach(id=>{
+  const f=SITE.fields[id];
+  const eb=document.getElementById('field-eyebrow-'+id), ti=document.getElementById('field-title-'+id);
+  if(eb) eb.innerHTML=f.eyebrow;
+  if(ti) ti.textContent=f.title;
 });
 
 /* ══════════════════════════════════════════
