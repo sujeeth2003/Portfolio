@@ -591,27 +591,26 @@ FIELD_ID_LIST.forEach(id=>{
   if(ti) ti.textContent=f.title;
 });
 
-/* ══════════════════════════════════════════
-   BUILD PROJECTS
-══════════════════════════════════════════ */
-const projGrid = document.getElementById('projects-grid');
-PROJECTS.forEach(p => {
-  const card = document.createElement('div');
-  card.className = 'glass-card proj-card reveal';
-  card.innerHTML = `
-    <div class="proj-glow"></div>
-    <div class="proj-year">${p.year}${p.status ? `<span class="proj-status">${p.status}</span>` : ''}</div>
-    <div class="proj-title">${p.title}</div>
-    <div class="proj-teaser">${p.teaser}</div>
-    <div class="proj-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-    <div class="proj-expand">
-      <div class="proj-expand-inner">
-        <div class="proj-expand-content">
-          <ul class="proj-bullets">${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
-          ${p.repo
-            ? `<a class="proj-link" href="${p.repo}" target="_blank" rel="noopener">View code on GitHub ↗</a>`
-            : `<span class="proj-link-soon">code coming soon</span>`}
-        </div>
+document.getElementById('skills-eyebrow').textContent=SITE.skills.eyebrow;
+document.getElementById('skills-title').textContent=SITE.skills.title;
+document.getElementById('education-eyebrow').textContent=SITE.education.eyebrow;
+document.getElementById('education-title').textContent=SITE.education.title;
+document.getElementById('learned-from-eyebrow').textContent=SITE.learnedFrom.eyebrow;
+document.getElementById('learned-from-title').textContent=SITE.learnedFrom.title;
+
+document.getElementById('contact-title').textContent=SITE.contact.title;
+document.getElementById('contact-desc').textContent=SITE.contact.desc;
+
+document.getElementById('site-footer').innerHTML=`&copy; ${SITE.footerYear} ${SITE.name} &nbsp;&middot;&nbsp; ${SITE.email}`;
+
+/* render helper for a mini project card */
+function renderMini(container, list, dotVar){
+  list.forEach(p=>{
+    const card=document.createElement('div');
+    card.className='card mini reveal';
+    card.innerHTML=`
+      <div class="mini-top">
+        <div class="mini-year">${p.year}</div>
       </div>
     </div>
     <div class="proj-hint">hover to expand ↓</div>`;
