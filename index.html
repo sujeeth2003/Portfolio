@@ -697,10 +697,26 @@ const trackEl = document.getElementById('ticker-track');
 const full = tickerItems.map(t=>`<span>${t}</span>`).join('<span style="color:var(--muted)">&nbsp;&nbsp;/&nbsp;&nbsp;</span>');
 trackEl.innerHTML = full + '<span style="color:var(--muted)">&nbsp;&nbsp;/&nbsp;&nbsp;</span>' + full;
 
-  function resize(){
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    init();
+/* reveal on scroll (progressive enhancement - content stays visible if this fails) */
+try{
+  const revealEls=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');e.target.classList.remove('pre-reveal');obs.unobserve(e.target);}
+  }),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+  revealEls.forEach(el=>{el.classList.add('pre-reveal');obs.observe(el);});
+}catch(err){}
+
+/* reading progress rail */
+const fill=document.getElementById('progress-fill');
+function updateProgress(){
+  const h=document.documentElement;
+  const scrolled=h.scrollTop;
+  const max=h.scrollHeight-h.clientHeight;
+  fill.style.height=(max>0?(scrolled/max)*100:0)+'%';
+}
+addEventListener('scroll',updateProgress,{passive:true});
+updateProgress();
+
   }
 
   function init(){
