@@ -745,6 +745,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   } else if(FIELD_IDS.includes(id)){
     a.addEventListener('click',e=>{ e.preventDefault(); openField(id); });
   }
+});
+/* a visible "choose a different field" button at the top of every opened section */
+document.querySelectorAll('.field-detail > .wrap').forEach(wrap=>{
+  const btn=document.createElement('button');
+  btn.className='back-to-explore';
+  btn.innerHTML=SITE.backToExplore;
+  btn.addEventListener('click',reopenExplore);
+  wrap.insertBefore(btn, wrap.firstChild);
+});
 
   function init(){
     pts = Array.from({length: N}, () => ({
