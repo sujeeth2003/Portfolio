@@ -801,6 +801,13 @@ if(deckCards.length){
     deckWrap.addEventListener('mouseenter',stopDeck);
     deckWrap.addEventListener('mouseleave',startDeck);
   }
+  deckCards.forEach(card=>{
+    card.addEventListener('click',()=>openField(card.dataset.field));
+    card.addEventListener('mouseenter',()=>sayFor(card.dataset.field));
+  });
+  let deckResizeT=null;
+  addEventListener('resize',()=>{ clearTimeout(deckResizeT); deckResizeT=setTimeout(layoutDeck,120); },{passive:true});
+}
 
   function frame(){
     ctx.clearRect(0, 0, W, H);
