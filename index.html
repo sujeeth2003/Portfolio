@@ -755,14 +755,38 @@ document.querySelectorAll('.field-detail > .wrap').forEach(wrap=>{
   wrap.insertBefore(btn, wrap.firstChild);
 });
 
-  function init(){
-    pts = Array.from({length: N}, () => ({
-      x:  Math.random() * W,
-      y:  Math.random() * H,
-      vx: (Math.random() - .5) * BASE_SPEED * 2,
-      vy: (Math.random() - .5) * BASE_SPEED * 2,
-      r:  Math.random() * 1.8 + .6
-    }));
+/* card deck carousel - all five fields always visible, one rotates to the front */
+const deckWrap=document.getElementById('deck-wrap');
+if(deckWrap){
+  deckWrap.innerHTML=DECK.map((d,i)=>`
+    <button class="deck-card" data-field="${d.field}" data-i="${i}" style="--f:var(--f-${d.field})">
+      <img src="${d.thumb}" alt="">
+      <div class="deck-card-body">
+        <div class="deck-card-title">${d.title}</div>
+        <div class="deck-card-desc">${d.desc}</div>
+      </div>
+    </button>
+  `).join('');
+}
+let deckIndex=0, deckTimer=null;
+const deckCards=[...document.querySelectorAll('.deck-card')];
+const DECK_N=deckCards.length;
+function layoutDeck(){
+  const scaleVar=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--deck-radius'))||1;
+  deckCards.forEach(card=>{
+    const i=+card.dataset.i;
+    const delta=(i-deckIndex+DECK_N)%DECK_N;
+    const mid=Math.floor(DECK_N/2);
+    const side=delta<=mid?delta:delta-DECK_N; // -2..-1,0,1..2
+    const x=side*170*scaleVar;
+    const scale=side===0?1:(1-Math.abs(side)*.16);
+    const opacity=side===0?1:(1-Math.abs(side)*.08);
+    const z=10-Math.abs(side);
+    card.style.transform=`translate(-50%,-50%) translateX(${x}px) scale(${scale})`;
+    card.style.opacity=opacity;
+    card.style.zIndex=z;
+    card.classList.toggle('front',side===0);
+  });
   }
 
   function frame(){
