@@ -809,10 +809,23 @@ if(deckCards.length){
   addEventListener('resize',()=>{ clearTimeout(deckResizeT); deckResizeT=setTimeout(layoutDeck,120); },{passive:true});
 }
 
-  function frame(){
-    ctx.clearRect(0, 0, W, H);
-    hue = (hue + HUE_RATE) % 360;
-    const hue2 = (hue + 50) % 360;
+/* gentle text parallax as you scroll - skipped under reduced motion */
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const parallaxEls=[...document.querySelectorAll('.parallax')];
+  let ticking=false;
+  function applyParallax(){
+    const vh=window.innerHeight;
+    parallaxEls.forEach(el=>{
+      const speed=parseFloat(el.dataset.speed)||0.08;
+      const rect=el.getBoundingClientRect();
+      const centerDelta=(rect.top+rect.height/2)-vh/2;
+      el.style.transform=`translateY(${(-centerDelta*speed).toFixed(1)}px)`;
+    });
+    ticking=false;
+  }
+  addEventListener('scroll',()=>{ if(!ticking){requestAnimationFrame(applyParallax);ticking=true;} },{passive:true});
+  applyParallax();
+}
 
     // move
     for(let i = 0; i < N; i++){
