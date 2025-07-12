@@ -827,13 +827,10 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   applyParallax();
 }
 
-    // move
-    for(let i = 0; i < N; i++){
-      const p = pts[i];
-      p.x += p.vx; p.y += p.vy;
-      if(p.x < 0 || p.x > W) p.vx *= -1;
-      if(p.y < 0 || p.y > H) p.vy *= -1;
-    }
+/* respect reduced motion for the pcb signal dots */
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.pcb-scene svg').forEach(svg=>{if(svg.pauseAnimations) svg.pauseAnimations();});
+}
 
     // links
     for(let i = 0; i < N; i++){
