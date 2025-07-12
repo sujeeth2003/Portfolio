@@ -832,24 +832,15 @@ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   document.querySelectorAll('.pcb-scene svg').forEach(svg=>{if(svg.pauseAnimations) svg.pauseAnimations();});
 }
 
-    // links
-    for(let i = 0; i < N; i++){
-      const a = pts[i];
-      for(let j = i+1; j < N; j++){
-        const b  = pts[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const dSq = dx*dx + dy*dy;
-        if(dSq < LINK_SQ){
-          const t = 1 - dSq / LINK_SQ;
-          ctx.strokeStyle = `hsla(${hue},75%,65%,${(t * .32).toFixed(3)})`;
-          ctx.lineWidth   = t * 1.4;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-    }
+/* live2d rem widget */
+try{
+  L2Dwidget.init({
+    model:{ jsonPath:"https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models/live2d_evrstr/rem/model.json", scale:1.35 },
+    display:{ position:"right", width:200, height:280, hOffset:-6, vOffset:-38 },
+    mobile:{ show:true, scale:.8 },
+    react:{ opacityDefault:1, opacityOnHover:1 }
+  });
+}catch(err){}
 
     // dots
     for(let i = 0; i < N; i++){
