@@ -17,3 +17,13 @@ const REM_MESSAGES = {
   contact:"Impressed? Do reach out. I'll notice.",
 };
 
+const REM_CLICK_LINES = [
+  "Yes? I'm watching over this page.",
+  "He worked hard on this. I made sure of it.",
+  "Curious about something? Ask away.",
+  "This corner is mine. I like it here.",
+  "No need to rush. Take your time.",
+  "He tries with his whole heart. That's enough for me.",
+  "Careful. I notice everything.",
+  "I could do this in my sleep, honestly.",
+];
