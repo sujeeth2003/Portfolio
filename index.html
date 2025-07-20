@@ -30,3 +30,35 @@
   --card:rgba(255,255,255,0.76);
   --card-hover:rgba(255,255,255,0.9);
   --radius:14px;
+
+  --accent:#2f6fa8;
+  --accent-soft:rgba(47,111,168,.14);
+  --accent-dim:rgba(47,111,168,.5);
+
+  --f-systems:#2f6fa8;
+  --f-hardware:#5a5fbf;
+  --f-quant:#2f9e86;
+  --f-ml:#8354c2;
+  --f-data:#526a94;
+
+  --deck-radius:1;
+}
+@media (max-width:900px){:root{--deck-radius:.62}}
+@media (max-width:560px){:root{--deck-radius:.4}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Inter',sans-serif;font-weight:300;line-height:1.7;
+  overflow-x:hidden;
+}
+/* site-wide background photo, fixed so it stays put while panels scroll over it -
+   kept at a modest size and padded with a matching board-blue so it reads as a
+   framed illustration instead of an oversized, text-obscuring backdrop */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;background-color:#b7c7db;
+  background-image:url('assets/hero-bg.jpg');
+  background-repeat:no-repeat;background-position:center;background-attachment:fixed;
+  background-size:Cover;
+}
+@media (max-width: 768px) { body::before { background-attachment: scroll;}}
