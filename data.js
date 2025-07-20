@@ -184,3 +184,22 @@ const FIELD_PROJECTS = {
     ]},
   ],
 
+  data: [
+    { year:"2025", title:"AWS Data Pipeline (S3 / Athena / Lambda / Step Functions)", teaser:"End-to-end AWS pipeline with least-privilege IAM roles scoped per function.", tags:["AWS","Boto3","Step Functions","IAM"], bullets:[
+      "Built an S3-to-Athena pipeline with Boto3 for refining data and Lambda triggered automatically on new S3 objects.",
+      "Orchestrated the pipeline end-to-end with AWS Step Functions.",
+      "Scoped each function to its own least-privilege IAM role instead of a shared broad-access role."
+    ]},
+    { year:"2025", title:"Healthcare Data &amp; RAG Pipeline, MedLaunch Concepts", teaser:"Hierarchical JSON database of hospital coding standards feeding a customer-facing RAG chatbot.", tags:["ETL","AWS S3","MongoDB","Redis"], bullets:[
+      "Extracted DMV and state hospital-code standards into a hierarchical JSON schema with ancestry structure for faster grouping and lower query latency.",
+      "Built an ETL pipeline from source extraction through JSON schema generation into AWS S3, feeding an LLM/RAG system.",
+      "Set up MongoDB for flexible access patterns and Redis for caching hot queries, optimizing SQL for a filtering page that needed to feel instant."
+    ]},
+    { year:"2025", title:"Time-Series Anomaly Detection, Industrial Sensor Data", teaser:"Unsupervised and supervised anomaly detection on multivariate industrial sensor streams.", tags:["Isolation Forest","LSTM Autoencoder","Feature Engineering"], bullets:[
+      "Engineered rolling statistical and frequency-domain features from multivariate sensor streams.",
+      "Trained Isolation Forest and LSTM autoencoder models for operational monitoring.",
+      "Evaluated against false-positive rate and detection latency to reflect real production constraints."
+    ]},
+  ],
+};
+
