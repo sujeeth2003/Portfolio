@@ -159,3 +159,35 @@ main{position:relative;z-index:1}
 .btn-ghost{background:rgba(255,255,255,.55);color:var(--dim);backdrop-filter:blur(6px)}
 .btn-ghost:hover{border-color:var(--line-strong);color:var(--text);transform:translateY(-1px)}
 
+/* SECTION SHELL */
+.field-section{
+  padding:5.5rem 0 1rem;border-top:1px solid var(--line);position:relative;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--f) 12%,transparent),transparent 55%);
+}
+
+/* field detail panels - hidden until picked from the orbit selector */
+.field-detail{display:none}
+.field-detail.open{display:block;animation:fieldFadeIn .5s ease}
+@keyframes fieldFadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* deck selector - rectangular cards circling a center point, one up front at a time */
+#explore{transition:opacity .4s,max-height .4s;overflow:hidden}
+#explore.collapsed{max-height:0;opacity:0;padding:0;border-top:none;pointer-events:none}
+.back-to-explore{
+  display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1.2rem;
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.04em;
+  padding:.5rem .9rem;border-radius:100px;border:1px solid var(--line-strong);
+  background:rgba(255,255,255,.6);backdrop-filter:blur(6px);color:var(--dim);
+  cursor:pointer;transition:transform .2s,color .2s,border-color .2s;
+}
+.back-to-explore:hover{transform:translateX(-2px);color:var(--text);border-color:var(--f,var(--accent))}
+.deck-wrap{position:relative;height:210px;margin:0 auto 1rem;perspective:900px}
+.deck-card{
+  position:absolute;top:50%;left:50%;width:220px;height:145px;
+  border-radius:14px;overflow:hidden;border:2px solid var(--f);cursor:pointer;padding:0;
+  background:var(--bg-raise);box-shadow:0 14px 34px rgba(24,34,51,.2);
+  transition:transform .7s cubic-bezier(.4,0,.2,1),opacity .7s,box-shadow .3s;
+}
+.deck-card:hover{box-shadow:0 18px 40px rgba(24,34,51,.3)}
+.deck-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3}
+.deck-card-body{
