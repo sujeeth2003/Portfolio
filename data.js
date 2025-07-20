@@ -164,3 +164,23 @@ const FIELD_PROJECTS = {
     ]},
   ],
 
+  quant: [],
+
+  ml: [
+    { year:"2026", title:"Eureka — Research Lineage Intelligence Platform", teaser:"Relational system modeling intellectual lineage and industry adoption of research ideas in a normalized 3NF schema.", tags:["SQLite","SQL","Graph Analytics"], bullets:[
+      "Engineered a 5-entity normalized schema: Mentors, Authors, Papers (self-referential lineage), PaperAuthors, CompanyAdoption.",
+      "Modeled intellectual ancestry via self-join foreign keys, with SQL analytics for mentor productivity and industry adoption.",
+      "Outlined a graph extension for centrality and community detection as a scaling path to PostgreSQL."
+    ]},
+    { year:"2025", title:"Multi-Agent Analytics Orchestration Platform", teaser:"Planner/Retriever/Executor/Critic agents on LangGraph with concurrent execution via Ray and Redis.", tags:["LangGraph","Ray","Redis","FastAPI"], bullets:[
+      "Orchestrated four agent roles with vector-based memory workflows.",
+      "Enabled concurrent execution across agents using Ray and Redis, monitoring latency and failure rates.",
+      "Containerized inference services with FastAPI and Docker for modular deployment."
+    ]},
+    { year:"2025", title:"Anime Recommendation System", teaser:"Hybrid ALS collaborative filtering and TF-IDF content embeddings over 73k users x 12k items.", tags:["ALS","TF-IDF","Sparse Matrices"], bullets:[
+      "Processed 73k users by 12k items into sparse implicit-feedback interaction matrices.",
+      "Trained ALS-based collaborative filtering, reducing RMSE by 38% over a popularity baseline.",
+      "Integrated TF-IDF content embeddings into hybrid scoring, evaluated with Precision@K and Recall@K."
+    ]},
+  ],
+
