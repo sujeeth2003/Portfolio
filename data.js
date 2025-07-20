@@ -150,3 +150,17 @@ const FIELD_PROJECTS = {
     ]},
   ],
 
+  hardware: [
+    { year:"2024", title:"Verilog Compiler with AST Generation & Schematic Synthesis", teaser:"A C++ compiler for a subset of Verilog: lexer, parser, AST, gate-level netlist, and automatic circuit visualization.", tags:["C++","Compilers","AST","Graphviz"], bullets:[
+      "Built a lexer and recursive-descent parser with operator precedence, constructing an AST for Verilog modules and expressions.",
+      "Compiled the AST into a gate-level netlist (AND, OR, XOR, NOT, ADD, SUB) with temporary net generation.",
+      "Generated Graphviz DOT output and rendered digital circuit schematics automatically to SVG.",
+      "Modularized into independent lexing, parsing, AST, netlist, and schematic stages with exception-based error diagnostics."
+    ]},
+    { year:"2024", title:"Constrained-Random &amp; Formal Verification Suite", teaser:"SystemVerilog OOP testbenches with functional coverage, plus formal proofs on a FIFO/arbiter block.", tags:["SystemVerilog","UVM","Formal","Coverage"], bullets:[
+      "Rebuilt ALU/FIFO testbenches as class-based, constrained-random environments with a self-checking scoreboard and functional coverage.",
+      "Achieved over 90% coverage on defined coverpoints; random testing surfaced bugs directed tests had missed.",
+      "Wrote and proved formal properties (ordering, mutual exclusion of full/empty) for a FIFO/arbiter with SymbiYosys."
+    ]},
+  ],
+
