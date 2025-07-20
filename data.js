@@ -18,3 +18,17 @@ const SITE = {
   calendarLink:"https://calendar.app.google/6z1MAE1pPd1BCqET7",
   footerYear:"2026",
 
+  nav:{ explore:"Explore", contact:"Contact" },
+
+  hero:{
+    eyebrow:"M.S. Data Science &middot; University of Maryland",
+    title:"Systems that run fast. Models that hold up.",
+    desc:"Low-latency C++, RTL hardware, quantitative trading, applied ML, and industrial data systems. One flagship build per field, below.",
+  },
+
+  explore:{
+    eyebrow:"Explore",
+    title:"Pick a field to dive in",
+    desc:"One flagship build per track. Click the card in front, or wait for the one you want.",
+  },
+
