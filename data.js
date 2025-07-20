@@ -46,3 +46,20 @@ const SITE = {
   education:{ eyebrow:"Education", title:"Academic background" },
   learnedFrom:{ eyebrow:"Credit where it's due", title:"YouTube channels I learned from" },
 
+  contact:{
+    title:"Let's talk.",
+    desc:"Open to internship and new-grad roles across systems, quant, ML, and data engineering.",
+  },
+
+  backToExplore:"&larr; Choose a different field",
+};
+
+/* ---- deck cards on the "pick a field" selector ---- */
+const DECK = [
+  { field:"systems",  title:"Low-Latency Systems",   desc:"C++ matching engine, tuned version by version.",        thumb:"assets/thumb-systems.svg" },
+  { field:"hardware", title:"RTL & Hardware",         desc:"A pipelined RISC-V CPU, verified in UVM.",               thumb:"assets/thumb-hardware.svg" },
+  { field:"quant",    title:"Quant & Trading",        desc:"Regime detection, backtested honestly.",                thumb:"assets/thumb-quant.svg" },
+  { field:"ml",       title:"Applied ML & GenAI",     desc:"A DeepSeek-style LLM, built from scratch.",              thumb:"assets/thumb-ml.svg" },
+  { field:"data",     title:"Data & Industrial",      desc:"100 kHz sensor data to production pipelines.",          thumb:"assets/thumb-data.svg" },
+];
+
