@@ -140,3 +140,22 @@ main{position:relative;z-index:1}
   text-decoration:none;color:var(--text);background:rgba(255,255,255,.55);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   transition:border-color .2s,transform .2s,background .2s;
+}
+.field-pill:hover{transform:translateY(-2px)}
+.field-pill .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.yt-thumb{width:18px;height:18px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.hero-cta{
+  margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:.8rem;
+  opacity:0;animation:fadeUp .7s ease .6s forwards;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.35rem;border-radius:100px;
+  font-family:'JetBrains Mono', monospace;font-size:.72rem;letter-spacing:.05em;
+  text-decoration:none;border:1px solid var(--line);cursor:pointer;transition:all .2s;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(24,34,51,.18)}
+.btn-ghost{background:rgba(255,255,255,.55);color:var(--dim);backdrop-filter:blur(6px)}
+.btn-ghost:hover{border-color:var(--line-strong);color:var(--text);transform:translateY(-1px)}
+
