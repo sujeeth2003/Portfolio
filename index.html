@@ -549,3 +549,27 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="wrap">
+      <h2 id="contact-title"></h2>
+      <p id="contact-desc"></p>
+      <div class="contact-cta" id="contact-cta"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="data.js"></script>
+<script src="rem-dialogues.js"></script>
+<script>
+/* hydrate every plain-text string from SITE (data.js) */
+const FIELD_ID_LIST=Object.keys(SITE.fields);
+document.getElementById('nav-logo').innerHTML=`<em>${SITE.name[0]}</em>${SITE.name.slice(1)}`;
+document.getElementById('nav-links').innerHTML=
+  `<li><a href="#explore">${SITE.nav.explore}</a></li>` +
+  FIELD_ID_LIST.map(id=>`<li><a href="#${id}">${SITE.fields[id].nav}</a></li>`).join('') +
+  `<li><a href="#contact">${SITE.nav.contact}</a></li>`;
+
