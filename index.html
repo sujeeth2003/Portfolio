@@ -573,3 +573,20 @@ document.getElementById('nav-links').innerHTML=
   FIELD_ID_LIST.map(id=>`<li><a href="#${id}">${SITE.fields[id].nav}</a></li>`).join('') +
   `<li><a href="#contact">${SITE.nav.contact}</a></li>`;
 
+document.getElementById('hero-eyebrow').innerHTML=SITE.hero.eyebrow;
+document.getElementById('hero-title').textContent=SITE.hero.title;
+document.getElementById('hero-desc').textContent=SITE.hero.desc;
+document.getElementById('hero-fields').innerHTML=FIELD_ID_LIST.map(id=>
+  `<a class="field-pill" href="#${id}"><span class="dot" style="background:var(--f-${id})"></span>${SITE.fields[id].pill}</a>`
+).join('');
+
+function renderCtaButtons(container){
+  container.innerHTML=`
+    <a class="btn btn-primary" href="mailto:${SITE.email}">${SITE.email}</a>
+    <a class="btn btn-ghost" href="${SITE.calendarLink}" target="_blank" rel="noopener">Schedule 30 min</a>
+    <a class="btn btn-ghost" href="${SITE.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-ghost" href="${SITE.github}" target="_blank" rel="noopener">GitHub</a>`;
+}
+renderCtaButtons(document.getElementById('hero-cta'));
+renderCtaButtons(document.getElementById('contact-cta'));
+
