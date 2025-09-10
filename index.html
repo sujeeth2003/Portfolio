@@ -662,3 +662,26 @@ Object.keys(FLAGSHIPS).forEach(fieldId=>{
     </div>`;
 });
 
+/* ═══ skills grid, from SKILLS in data.js ═══ */
+const skillsGrid=document.getElementById('skills-grid');
+if(skillsGrid){
+  skillsGrid.innerHTML=SKILLS.map(s=>`
+    <div class="card skill-block"><div class="skill-label">${s.label}</div><div class="skill-items">${s.items}</div></div>
+  `).join('');
+}
+
+/* ═══ education, from EDUCATION in data.js ═══ */
+const eduList=document.getElementById('edu-list');
+if(eduList){
+  eduList.innerHTML=EDUCATION.map(e=>`
+    <div class="edu-row">
+      <div class="edu-icon">&#127891;</div>
+      <div class="edu-main">
+        <div class="edu-school">${e.school}</div>
+        <div class="edu-degree">${e.degree}</div>
+      </div>
+      <div class="edu-meta">${e.meta}<br>${e.place}</div>
+    </div>
+  `).join('');
+}
+
