@@ -590,3 +590,21 @@ function renderCtaButtons(container){
 renderCtaButtons(document.getElementById('hero-cta'));
 renderCtaButtons(document.getElementById('contact-cta'));
 
+document.getElementById('explore-eyebrow').textContent=SITE.explore.eyebrow;
+document.getElementById('explore-title').textContent=SITE.explore.title;
+document.getElementById('explore-desc').textContent=SITE.explore.desc;
+
+FIELD_ID_LIST.forEach(id=>{
+  const f=SITE.fields[id];
+  const eb=document.getElementById('field-eyebrow-'+id), ti=document.getElementById('field-title-'+id);
+  if(eb) eb.innerHTML=f.eyebrow;
+  if(ti) ti.textContent=f.title;
+});
+
+document.getElementById('skills-eyebrow').textContent=SITE.skills.eyebrow;
+document.getElementById('skills-title').textContent=SITE.skills.title;
+document.getElementById('education-eyebrow').textContent=SITE.education.eyebrow;
+document.getElementById('education-title').textContent=SITE.education.title;
+document.getElementById('learned-from-eyebrow').textContent=SITE.learnedFrom.eyebrow;
+document.getElementById('learned-from-title').textContent=SITE.learnedFrom.title;
+
