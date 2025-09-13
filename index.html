@@ -727,3 +727,35 @@ function updateProgress(){
 addEventListener('scroll',updateProgress,{passive:true});
 updateProgress();
 
+/* field selector - fields stay collapsed until picked */
+const FIELD_IDS=['systems','hardware','quant','ml','data'];
+const exploreSection=document.getElementById('explore');
+function openField(id){
+  if(!FIELD_IDS.includes(id)) return;
+  document.querySelectorAll('.field-detail').forEach(el=>el.classList.toggle('open', el.id===id));
+  if(exploreSection){ exploreSection.classList.add('collapsed'); stopDeck(); }
+  const target=document.getElementById(id);
+  if(target) setTimeout(()=>{
+    const y=target.getBoundingClientRect().top+window.scrollY-78;
+    window.scrollTo({top:y,behavior:'smooth'});
+  },60);
+}
+function reopenExplore(){
+  document.querySelectorAll('.field-detail').forEach(el=>el.classList.remove('open'));
+  if(exploreSection){ exploreSection.classList.remove('collapsed'); startDeck(); }
+  setTimeout(()=>{
+    const y=exploreSection.getBoundingClientRect().top+window.scrollY-78;
+    window.scrollTo({top:y,behavior:'smooth'});
+  },60);
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  const id=a.getAttribute('href').slice(1);
+  if(id==='explore'){
+    a.addEventListener('click',e=>{ e.preventDefault(); reopenExplore(); });
+  } else if(FIELD_IDS.includes(id)){
+    a.addEventListener('click',e=>{ e.preventDefault(); openField(id); });
+  }
+});
+/* a visible "choose a different field" button at the top of every opened section */
+document.querySelectorAll('.field-detail > .wrap').forEach(wrap=>{
+  const btn=document.createElement('button');
