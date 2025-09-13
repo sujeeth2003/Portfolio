@@ -759,3 +759,35 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 /* a visible "choose a different field" button at the top of every opened section */
 document.querySelectorAll('.field-detail > .wrap').forEach(wrap=>{
   const btn=document.createElement('button');
+  btn.className='back-to-explore';
+  btn.innerHTML=SITE.backToExplore;
+  btn.addEventListener('click',reopenExplore);
+  wrap.insertBefore(btn, wrap.firstChild);
+});
+
+/* card deck carousel - all five fields always visible, one rotates to the front */
+const deckWrap=document.getElementById('deck-wrap');
+if(deckWrap){
+  deckWrap.innerHTML=DECK.map((d,i)=>`
+    <button class="deck-card" data-field="${d.field}" data-i="${i}" style="--f:var(--f-${d.field})">
+      <img src="${d.thumb}" alt="">
+      <div class="deck-card-body">
+        <div class="deck-card-title">${d.title}</div>
+        <div class="deck-card-desc">${d.desc}</div>
+      </div>
+    </button>
+  `).join('');
+}
+let deckIndex=0, deckTimer=null;
+const deckCards=[...document.querySelectorAll('.deck-card')];
+const DECK_N=deckCards.length;
+function layoutDeck(){
+  const scaleVar=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--deck-radius'))||1;
+  deckCards.forEach(card=>{
+    const i=+card.dataset.i;
+    const delta=(i-deckIndex+DECK_N)%DECK_N;
+    const mid=Math.floor(DECK_N/2);
+    const side=delta<=mid?delta:delta-DECK_N; // -2..-1,0,1..2
+    const x=side*170*scaleVar;
+    const scale=side===0?1:(1-Math.abs(side)*.16);
+    const opacity=side===0?1:(1-Math.abs(side)*.08);
