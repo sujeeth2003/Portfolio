@@ -685,3 +685,25 @@ if(eduList){
   `).join('');
 }
 
+/* ═══ YouTube channels credited, from YT_CHANNELS in data.js ═══ */
+const ytList=document.getElementById('yt-channels');
+if(ytList){
+  ytList.innerHTML=YT_CHANNELS.map(c=>`
+    <a class="field-pill yt-pill" href="${c.url}" target="_blank" rel="noopener">
+      ${c.thumb?`<img src="${c.thumb}" alt="" class="yt-thumb">`:`<span class="dot" style="background:var(--accent)"></span>`}
+      ${c.name}
+    </a>
+  `).join('');
+}
+
+/* ticker */
+const tickerItems = [
+  "IMC PROSPERITY 4 · RANK 155 MANUAL TRADING",
+  "12% ANNUALIZED RETURN · WALK-FORWARD BACKTEST",
+  "GAUSSIAN HMM · FORWARD-BACKWARD FROM SCRATCH",
+  "93RD PERCENTILE · JEE MATHEMATICS",
+];
+const trackEl = document.getElementById('ticker-track');
+const full = tickerItems.map(t=>`<span>${t}</span>`).join('<span style="color:var(--muted)">&nbsp;&nbsp;/&nbsp;&nbsp;</span>');
+trackEl.innerHTML = full + '<span style="color:var(--muted)">&nbsp;&nbsp;/&nbsp;&nbsp;</span>' + full;
+
