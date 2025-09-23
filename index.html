@@ -791,3 +791,31 @@ function layoutDeck(){
     const x=side*170*scaleVar;
     const scale=side===0?1:(1-Math.abs(side)*.16);
     const opacity=side===0?1:(1-Math.abs(side)*.08);
+    const z=10-Math.abs(side);
+    card.style.transform=`translate(-50%,-50%) translateX(${x}px) scale(${scale})`;
+    card.style.opacity=opacity;
+    card.style.zIndex=z;
+    card.classList.toggle('front',side===0);
+  });
+}
+function startDeck(){
+  stopDeck();
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  deckTimer=setInterval(()=>{ deckIndex=(deckIndex+1)%DECK_N; layoutDeck(); },3000);
+}
+function stopDeck(){ if(deckTimer){ clearInterval(deckTimer); deckTimer=null; } }
+if(deckCards.length){
+  layoutDeck();
+  startDeck();
+  if(deckWrap){
+    deckWrap.addEventListener('mouseenter',stopDeck);
+    deckWrap.addEventListener('mouseleave',startDeck);
+  }
+  deckCards.forEach(card=>{
+    card.addEventListener('click',()=>openField(card.dataset.field));
+    card.addEventListener('mouseenter',()=>sayFor(card.dataset.field));
+  });
+  let deckResizeT=null;
+  addEventListener('resize',()=>{ clearTimeout(deckResizeT); deckResizeT=setTimeout(layoutDeck,120); },{passive:true});
+}
+
