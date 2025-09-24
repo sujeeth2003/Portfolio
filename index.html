@@ -873,3 +873,14 @@ try{
   });
   setTimeout(()=>bubble.classList.add('show'),400);
 
+  document.addEventListener('click',(e)=>{
+    if(e.clientX<window.innerWidth-220||e.clientY<window.innerHeight-290) return;
+    bubble.textContent=REM_CLICK_LINES[Math.floor(Math.random()*REM_CLICK_LINES.length)];
+    bubble.classList.add('show');
+    clearTimeout(mascotTimer);
+    mascotTimer=setTimeout(()=>bubble.classList.remove('show'),6500);
+  });
+}catch(err){}
+</script>
+</body>
+</html>
