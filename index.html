@@ -852,3 +852,24 @@ try{
   });
 }catch(err){}
 
+/* mascot commentary - text lives in rem-dialogues.js */
+const bubble=document.getElementById('mascot-bubble');
+let mascotTimer=null;
+function sayFor(id){
+  const msg=REM_MESSAGES[id];
+  if(!msg) return;
+  bubble.textContent=msg;
+  bubble.classList.add('show');
+  clearTimeout(mascotTimer);
+  mascotTimer=setTimeout(()=>bubble.classList.remove('show'),6500);
+}
+try{
+  const mascotObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting) sayFor(e.target.id);});
+  },{threshold:.4});
+  ['home','systems','hardware','quant','ml','data','skills','education','contact'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) mascotObs.observe(el);
+  });
+  setTimeout(()=>bubble.classList.add('show'),400);
+
