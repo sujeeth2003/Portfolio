@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sujeeth | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+    }
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      padding: 1rem;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #222;
+      color: #fff;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      border-left: 5px solid #222;
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sujeeth</h1>
+    <p>Data Scientist | Animator | Video Editor | Automation Enthusiast</p>
+  </header>
+  
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Data Science Projects</a>
+    <a href="#animation">Animation & Editing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm Sujeeth — a data scientist with strong foundations in mathematics, engineering, and automation. I also create animations and edit videos, merging art and technology into meaningful work.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Data Science & Engineering Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Reinforcement Learning Tank Control</h3>
+        <p>Developed an RL agent that controls a real-world tank system using a simulation model.</p>
+      </div>
+      <div class="card">
+        <h3>Automation Workflows</h3>
+        <p>Automated data extraction, transformation, and Excel processes using Python.</p>
+      </div>
+      <div class="card">
+        <h3>PLC & SCADA Designs</h3>
+        <p>Designed industrial automation systems using PLC logic and SCADA interfaces.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="animation">
+    <h2>Animation & Editing Portfolio</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>3D/2D Animation Showreel</h3>
+        <p>Link your YouTube or Vimeo video here.</p>
+      </div>
+      <div class="card">
+        <h3>Video Editing Projects</h3>
+        <p>Showcase short clips or highlight reels.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: sujeethsukumar@gmail.com</p>
+  </section>
+
+  <footer>
+    © 2025 Sujeeth — All Rights Reserved
+  </footer>
+</body>
+</html>
