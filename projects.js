@@ -5,15 +5,15 @@ const projects = [
     long: `An end-to-end AI-powered finance assistant that analyzes user expenses,
 detects patterns, and generates actionable insights using LLM reasoning.
 Includes a live interactive demo with editable inputs.`,
-    github: "https://github.com/yourusername/finance-ai",
+    github: "https://github.com/sujeeth2003/Spending-Assistant",
     cloud: "s"
   },
   {
-    title: "Reinforcement Learning DC Motor Control",
-    short: "RL agent controlling a real motor.",
-    long: `Designed a reinforcement learning environment, trained an agent in simulation,
-and deployed it to control a real-world DC motor with adaptive control behavior.`,
-    github: "https://github.com/yourusername/rl-motor",
+    title: "Fraud Detection System",
+    short: "Random forest classifier for fraud detection",
+    long: `This project demonstrates a fraud detection pipeline for financial transactions using machine learning.
+It generates synthetic data, preprocesses it, trains a model, and evaluates fraud classification performance. I used Random forest to classify fraduantal transactions`,
+    github: "https://github.com/sujeeth2003/Fraud-Detection",
     cloud: "p_x"
   },
   {
@@ -21,15 +21,14 @@ and deployed it to control a real-world DC motor with adaptive control behavior.
     short: "CNN-based vision system.",
     long: `Built and evaluated deep learning pipelines for image classification with
 a focus on generalization, evaluation metrics, and dataset bias handling.`,
-    github: "https://github.com/yourusername/image-classification",
+    github: "https://github.com/sujeeth2003/AI_Classifier",
     cloud: "p_y"
   },
   {
-    title: "Medical Pulse Signal Analysis",
-    short: "Clinical waveform intelligence.",
-    long: `Collected and analyzed pulse signals from diverse subjects to extract
-physiological patterns across age and health conditions.`,
-    github: "https://github.com/yourusername/pulse-analysis",
+    title: "Real vs AI image classifier",
+    short: "Probability of an image being real or ai generated using kaggle dataset",
+    long: `used kaggle dataset to train a model on identifying real and ai images and deployed the model in hugging face as a website.`,
+    github: "https://huggingface.co/spaces/sujeeth73/Real_vs_AI_image",
     cloud: "d"
   }
 ];
