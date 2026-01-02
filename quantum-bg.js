@@ -15,7 +15,7 @@ window.setQuantumMode = mode => cloudMode = mode;
 const center = { x: 0, y: 0 };
 
 // ================= LEAD ATOM VISUAL ORBITS =================
-const visualElectrons = Array.from({ length: 20 }, (_, i) => ({
+const visualElectrons = Array.from({ length: 1 }, (_, i) => ({
   r: 140 + i * 28,
   angle: Math.random() * Math.PI * 2,
   speed: 0.0012 + i * 0.00025
@@ -149,3 +149,4 @@ function animate() {
 }
 
 animate();
+
