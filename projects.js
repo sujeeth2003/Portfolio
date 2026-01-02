@@ -27,7 +27,7 @@ a focus on generalization, evaluation metrics, and dataset bias handling.`,
   {
     title: "Real vs AI image classifier",
     short: "Probability of an image being real or ai generated using kaggle dataset",
-    long: `used kaggle dataset to train a model on identifying real and ai images and deployed the model in hugging face as a website.`,
+    long: `Used kaggle dataset to train a model on identifying real and AI images and deployed the model in Hugging Face as a website.`,
     github: "https://huggingface.co/spaces/sujeeth73/Real_vs_AI_image",
     cloud: "d"
   }
@@ -48,11 +48,24 @@ projects.forEach((p, idx) => {
     <div class="project-long">${p.long}</div>
   `;
 
-  card.addEventListener("mouseenter", () => window.setQuantumMode(p.cloud));
-  card.addEventListener("mouseleave", () => window.setQuantumMode(null));
+  // Hover to expand temporarily
+  card.addEventListener("mouseenter", () => {
+    card.classList.add("expanded");
+    window.setQuantumMode(p.cloud);
+  });
+
+  card.addEventListener("mouseleave", () => {
+    // Only collapse if it hasn't been clicked
+    if (card.dataset.clicked === "false") {
+      card.classList.remove("expanded");
+    }
+    window.setQuantumMode(null);
+  });
+
+  // Click to expand permanently or open GitHub on second click
   card.addEventListener("click", () => {
     if (card.dataset.clicked === "false") {
-      card.dataset.clicked = "true";
+      card.dataset.clicked = "true"; // now stays expanded
       card.classList.add("expanded");
     } else {
       window.open(p.github, "_blank");
