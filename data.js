@@ -76,7 +76,7 @@ const FLAGSHIPS = {
       "<strong>v5:</strong> Gave one matching thread exclusive lock-free ownership of the book; client threads push into per-connection SPSC rings it polls.",
     ],
     stack:["C++","Atomics","AVX2","Lock-free design","perf / perf c2c"],
-    linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003",
+    linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/limit-order-book-matching-engine",
   },
   hardware: {
     title:"5-Stage Pipelined RISC-V CPU + UVM Verification",
