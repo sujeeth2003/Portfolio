@@ -102,7 +102,7 @@ const FLAGSHIPS = {
       "<strong>Data:</strong> Automated ingestion via the Polygon API across SPY, QQQ, and AAPL.",
     ],
     stack:["Python","Gaussian HMM","Walk-forward CV","Polygon API"],
-    linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003",
+    linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/TradingAlgo",
   },
   ml: {
     title:"Building DeepSeek LLM From Scratch",
