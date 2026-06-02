@@ -89,7 +89,7 @@ const FLAGSHIPS = {
       "<strong>I/O:</strong> AXI-Lite slave with VALID/READY handshake logic, protocol-checked with SystemVerilog assertions.",
     ],
     stack:["SystemVerilog","UVM","SVA","SymbiYosys","AXI-Lite"],
-    linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003",
+    linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/rtl-digital-design",
   },
   quant: {
     title:"Algorithmic Trading &amp; Portfolio Optimization",
