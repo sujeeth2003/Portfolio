@@ -115,7 +115,7 @@ const FLAGSHIPS = {
       "<strong>Alignment:</strong> SFT with response-span-masked cross-entropy, plus DPO, confirmed correct by checking the loss equals ln(2) when the policy equals the reference model.",
     ],
     stack:["PyTorch","RoPE / GQA","SFT + DPO","Mixed precision"],
-    linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003",
+    linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/deepseek-llm-from-scratch",
   },
   data: {
     title:"Anomaly Detection on Aerospace Telemetry, Gantner Instruments",
