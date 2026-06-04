@@ -633,7 +633,7 @@ function renderMini(container, list, dotVar){
       <div class="mini-teaser">${p.teaser}</div>
       <div class="mini-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
       <div class="mini-expand"><div class="mini-expand-inner"><div class="mini-expand-content">
-        <ul class="mini-bullets">${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+        <ul class="mini-bullets">${p.bullets.map(b=>`<li>${b}</li>`).join('')}${p.link?`<li><a href="${p.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${p.linkText||'Code on GitHub'} &#8599;</a></li>`:''}</ul>
       </div></div></div>`;
     card.addEventListener('click',()=>card.classList.toggle('open'));
     container.appendChild(card);
