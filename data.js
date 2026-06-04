@@ -142,7 +142,7 @@ const FIELD_PROJECTS = {
       "v4: Gave each producer its own SPSC ring instead of a CAS-based MPSC queue, avoiding the ABA problem entirely.",
       "v5-v6: Kernel-bypass via AF_PACKET/PACKET_MMAP, then core pinning, isolated CPUs, and huge pages to cut TLB misses."
     ]},
-    { year:"2025", title:"Custom Low-Overhead Latency Tracing Tool", teaser:"RDTSC-based, per-thread tracer built to measure the feed handler and matching engine at nanosecond granularity.", tags:["C++","RDTSC","thread_local","NIC Timestamping"], bullets:[
+    { year:"2025", title:"Custom Low-Overhead Latency Tracing Tool", link:"https://github.com/sujeeth2003/low-overhead-latency-tracer", teaser:"RDTSC-based, per-thread tracer built to measure the feed handler and matching engine at nanosecond granularity.", tags:["C++","RDTSC","thread_local","NIC Timestamping"], bullets:[
       "Replaced std::chrono and string labels with the RDTSC hardware cycle counter and integer IDs, cutting per-call overhead to single-digit nanoseconds.",
       "Gave each thread its own trace buffer to remove false sharing, merging and sorting off the hot path at shutdown.",
       "Correlated NIC hardware packet-arrival timestamps (SO_TIMESTAMPING) against application-level traces to isolate true wire-to-application latency.",
