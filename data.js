@@ -136,7 +136,7 @@ const FLAGSHIPS = {
 const FIELD_PROJECTS = {
 
   systems: [
-    { year:"2025", title:"Multi-Producer Market Data Feed Handler", teaser:"UDP feed handler optimized across six versions from a mutex queue to kernel-bypass, core-pinned ingestion.", tags:["C++","Atomics","AF_PACKET","Kernel Bypass"], bullets:[
+    { year:"2025", title:"Multi-Producer Market Data Feed Handler", link:"https://github.com/sujeeth2003/market-data-feed-handler", teaser:"UDP feed handler optimized across six versions from a mutex queue to kernel-bypass, core-pinned ingestion.", tags:["C++","Atomics","AF_PACKET","Kernel Bypass"], bullets:[
       "v1&rarr;v2: Diagnosed futex sleep/wake round-trips as the tail-latency bottleneck, replaced with a lock-free SPSC ring buffer using memory_order_release/acquire.",
       "v3: Found false sharing between head/tail atomics with perf c2c cache-to-cache profiling, fixed with alignas(64) padding.",
       "v4: Gave each producer its own SPSC ring instead of a CAS-based MPSC queue, avoiding the ABA problem entirely.",
