@@ -167,7 +167,7 @@ const FIELD_PROJECTS = {
   quant: [],
 
   ml: [
-    { year:"2026", title:"Eureka — Research Lineage Intelligence Platform", teaser:"Relational system modeling intellectual lineage and industry adoption of research ideas in a normalized 3NF schema.", tags:["SQLite","SQL","Graph Analytics"], bullets:[
+    { year:"2026", title:"Eureka — Research Lineage Intelligence Platform", link:"https://github.com/sujeeth2003/eureka-research-lineage", teaser:"Relational system modeling intellectual lineage and industry adoption of research ideas in a normalized 3NF schema.", tags:["SQLite","SQL","Graph Analytics"], bullets:[
       "Engineered a 5-entity normalized schema: Mentors, Authors, Papers (self-referential lineage), PaperAuthors, CompanyAdoption.",
       "Modeled intellectual ancestry via self-join foreign keys, with SQL analytics for mentor productivity and industry adoption.",
       "Outlined a graph extension for centrality and community detection as a scaling path to PostgreSQL."
