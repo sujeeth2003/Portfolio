@@ -172,7 +172,7 @@ const FIELD_PROJECTS = {
       "Modeled intellectual ancestry via self-join foreign keys, with SQL analytics for mentor productivity and industry adoption.",
       "Outlined a graph extension for centrality and community detection as a scaling path to PostgreSQL."
     ]},
-    { year:"2025", title:"Multi-Agent Analytics Orchestration Platform", teaser:"Planner/Retriever/Executor/Critic agents on LangGraph with concurrent execution via Ray and Redis.", tags:["LangGraph","Ray","Redis","FastAPI"], bullets:[
+    { year:"2025", title:"Multi-Agent Analytics Orchestration Platform", link:"https://github.com/sujeeth2003/multi-agent-analytics", teaser:"Planner/Retriever/Executor/Critic agents on LangGraph with concurrent execution via Ray and Redis.", tags:["LangGraph","Ray","Redis","FastAPI"], bullets:[
       "Orchestrated four agent roles with vector-based memory workflows.",
       "Enabled concurrent execution across agents using Ray and Redis, monitoring latency and failure rates.",
       "Containerized inference services with FastAPI and Docker for modular deployment."
