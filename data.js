@@ -177,7 +177,7 @@ const FIELD_PROJECTS = {
       "Enabled concurrent execution across agents using Ray and Redis, monitoring latency and failure rates.",
       "Containerized inference services with FastAPI and Docker for modular deployment."
     ]},
-    { year:"2025", title:"Anime Recommendation System", teaser:"Hybrid ALS collaborative filtering and TF-IDF content embeddings over 73k users x 12k items.", tags:["ALS","TF-IDF","Sparse Matrices"], bullets:[
+    { year:"2025", title:"Anime Recommendation System", link:"https://github.com/sujeeth2003/anime-recommender", teaser:"Hybrid ALS collaborative filtering and TF-IDF content embeddings over 73k users x 12k items.", tags:["ALS","TF-IDF","Sparse Matrices"], bullets:[
       "Processed 73k users by 12k items into sparse implicit-feedback interaction matrices.",
       "Trained ALS-based collaborative filtering, reducing RMSE by 38% over a popularity baseline.",
       "Integrated TF-IDF content embeddings into hybrid scoring, evaluated with Precision@K and Recall@K."
