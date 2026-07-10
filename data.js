@@ -185,7 +185,7 @@ const FIELD_PROJECTS = {
   ],
 
   data: [
-    { year:"2025", title:"AWS Data Pipeline (S3 / Athena / Lambda / Step Functions)", teaser:"End-to-end AWS pipeline with least-privilege IAM roles scoped per function.", tags:["AWS","Boto3","Step Functions","IAM"], bullets:[
+    { year:"2025", title:"AWS Data Pipeline (S3 / Athena / Lambda / Step Functions)", link:"https://github.com/sujeeth2003/aws-healthcare-pipeline", teaser:"End-to-end AWS pipeline with least-privilege IAM roles scoped per function.", tags:["AWS","Boto3","Step Functions","IAM"], bullets:[
       "Built an S3-to-Athena pipeline with Boto3 for refining data and Lambda triggered automatically on new S3 objects.",
       "Orchestrated the pipeline end-to-end with AWS Step Functions.",
       "Scoped each function to its own least-privilege IAM role instead of a shared broad-access role."
