@@ -190,7 +190,7 @@ const FIELD_PROJECTS = {
       "Orchestrated the pipeline end-to-end with AWS Step Functions.",
       "Scoped each function to its own least-privilege IAM role instead of a shared broad-access role."
     ]},
-    { year:"2025", title:"Healthcare Data &amp; RAG Pipeline, MedLaunch Concepts", teaser:"Hierarchical JSON database of hospital coding standards feeding a customer-facing RAG chatbot.", tags:["ETL","AWS S3","MongoDB","Redis"], bullets:[
+    { year:"2025", title:"Healthcare Data &amp; RAG Pipeline, MedLaunch Concepts", link:"https://github.com/sujeeth2003/dmv-rag-pipeline", linkText:"Demo on synthetic data", teaser:"Hierarchical JSON database of hospital coding standards feeding a customer-facing RAG chatbot.", tags:["ETL","AWS S3","MongoDB","Redis"], bullets:[
       "Extracted DMV and state hospital-code standards into a hierarchical JSON schema with ancestry structure for faster grouping and lower query latency.",
       "Built an ETL pipeline from source extraction through JSON schema generation into AWS S3, feeding an LLM/RAG system.",
       "Set up MongoDB for flexible access patterns and Redis for caching hot queries, optimizing SQL for a filtering page that needed to feel instant."
