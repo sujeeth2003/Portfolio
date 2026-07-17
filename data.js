@@ -148,6 +148,17 @@ const FIELD_PROJECTS = {
       "Correlated NIC hardware packet-arrival timestamps (SO_TIMESTAMPING) against application-level traces to isolate true wire-to-application latency.",
       "Quantified tracer overhead against perf and VTune with a concrete ns/iteration comparison."
     ]},
+    { year:"2026", title:"Simplified Google File System", link:"https://github.com/sujeeth2003/google-file-system-simplified", teaser:"Master, chunkservers and client over real TCP: three-way replication, leases, record append, checksums, and re-replication after failures.", tags:["Python","Distributed Systems","Replication","TCP"], bullets:[
+      "Split the metadata path (master: namespace, chunk versions, locations) from the data path (clients talk to chunkservers directly) so the master never becomes the bottleneck.",
+      "Implemented the write path with data pushed to all replicas and a primary ordering the commit, plus atomic record append that pads and retries on the next chunk.",
+      "Added CRC32 block checksums with background scrubbing, chunk-version numbers to detect stale replicas, and automatic re-replication after a chunkserver dies.",
+      "Wrote 10 integration tests (crashes, corruption, master restart, concurrent appends) that exposed four real races, all fixed."
+    ]},
+    { year:"2026", title:"kdb+/q Time-Series Toolkit", link:"https://github.com/sujeeth2003/q-timeseries-toolkit", teaser:"As-of join, OHLC bars, VWAP and moving averages rebuilt from naive to fast in Python and C++ to see where kdb+'s speed comes from.", tags:["C++","NumPy","kdb+/q","Time Series"], bullets:[
+      "Rebuilt aj (as-of join) four ways; the C++ single merge pass is 38x faster than per-trade binary search on 2M trades x 4M quotes.",
+      "Showed columnar layout is worth 243x on a simple sum versus a list of dicts, and that a first vectorised OHLC was 0.3x (slower) until a hidden quadratic step was hoisted out.",
+      "Checked every fast variant returns the same answer as the naive one."
+    ]},
   ],
 
   hardware: [
