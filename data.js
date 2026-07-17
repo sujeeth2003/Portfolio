@@ -195,7 +195,7 @@ const FIELD_PROJECTS = {
       "Built an ETL pipeline from source extraction through JSON schema generation into AWS S3, feeding an LLM/RAG system.",
       "Set up MongoDB for flexible access patterns and Redis for caching hot queries, optimizing SQL for a filtering page that needed to feel instant."
     ]},
-    { year:"2025", title:"Time-Series Anomaly Detection, Industrial Sensor Data", teaser:"Unsupervised and supervised anomaly detection on multivariate industrial sensor streams.", tags:["Isolation Forest","LSTM Autoencoder","Feature Engineering"], bullets:[
+    { year:"2025", title:"Time-Series Anomaly Detection, Industrial Sensor Data", link:"https://github.com/sujeeth2003/time-series-anomaly-detection", teaser:"Unsupervised and supervised anomaly detection on multivariate industrial sensor streams.", tags:["Isolation Forest","LSTM Autoencoder","Feature Engineering"], bullets:[
       "Engineered rolling statistical and frequency-domain features from multivariate sensor streams.",
       "Trained Isolation Forest and LSTM autoencoder models for operational monitoring.",
       "Evaluated against false-positive rate and detection latency to reflect real production constraints."
