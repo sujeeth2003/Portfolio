@@ -258,8 +258,8 @@ const FIELD_PROJECTS = {
 
 /* ---- technical skills grid ---- */
 const SKILLS = [
-  { label:"Systems / Low-Latency", items:"C++, atomics, lock-free structures, AVX2, kernel bypass, core pinning" },
-  { label:"RTL / Hardware",        items:"SystemVerilog, UVM, SVA, formal verification, AXI-Lite, CDC" },
+  { label:"Systems / Low-Latency", items:"C++, atomics, lock-free structures, AVX2, kernel bypass, core pinning, distributed systems (GFS-style replication)" },
+  { label:"RTL / Hardware",        items:"SystemVerilog, UVM, SVA, formal verification (SymbiYosys), AXI-Lite, CDC, FPGA flow (Yosys, nextpnr), timing closure" },
   { label:"Quant / Finance",       items:"HMM regime detection, backtesting, walk-forward validation, Python" },
   { label:"Deep Learning",         items:"PyTorch, TensorFlow, Hugging Face, transformer architectures" },
   { label:"LLM Systems",           items:"LangChain, LangGraph, RAG, prompt engineering" },
