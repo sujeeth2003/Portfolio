@@ -205,6 +205,23 @@ const FIELD_PROJECTS = {
       "Trained ALS-based collaborative filtering, reducing RMSE by 38% over a popularity baseline.",
       "Integrated TF-IDF content embeddings into hybrid scoring, evaluated with Precision@K and Recall@K."
     ]},
+    { year:"2026", title:"Text-to-Image GAN with Held-Out Concept Combinations", link:"https://github.com/sujeeth2003/text-to-image-generator", teaser:"Text-conditioned GAN generating 32x32 images from sentences, tested on colour+shape pairs it never saw in training.", tags:["PyTorch","GAN","Text Conditioning"], bullets:[
+      "Sentence embedding as the sum of word embeddings, and a matching-aware discriminator that also rejects real images paired with the wrong text.",
+      "Measured results by reading attributes back off the generated pixels: colour, size and position 100% correct even on held-out combinations; shape 83% seen vs 67% held-out.",
+      "Reported the weak spot honestly: small crosses come out as blobs at this resolution."
+    ]},
+    { year:"2026", title:"DCGAN with Quantitative Evaluation", link:"https://github.com/sujeeth2003/dcgan-mnist", teaser:"Deep convolutional GAN following the paper's recipe, judged by a classifier trained on real data rather than by eye.", tags:["PyTorch","DCGAN","Evaluation"], bullets:[
+      "Followed the DCGAN recipe (strided/transposed convolutions, BatchNorm, LeakyReLU, N(0, 0.02) init) with non-saturating loss and label smoothing.",
+      "Checked all 10 classes are generated (entropy 0.94) with 0.89 mean classifier confidence, and logged D(x) and D(G(z)) to catch a discriminator that has won.",
+      "Trained on procedurally drawn digits so it runs anywhere; the loader reads real MNIST files."
+    ]},
+    { year:"2026", title:"RL Puzzle Solver", link:"https://github.com/sujeeth2003/rl-puzzle-solver", teaser:"Curriculum Q-learning on the 8-puzzle, measured against optimal A*.", tags:["Reinforcement Learning","Q-learning","A*"], bullets:[
+      "Sparse reward on 181,440 states is unlearnable directly, so scramble depth grows as the solve rate passes 85%.",
+      "Optimal up to about 12 scrambled moves, then degrades (61% solved at 16, 45% at 20): documented where tabular RL breaks and why."
+    ]},
+    { year:"2026", title:"Sparse Autoencoder (in progress)", link:"https://github.com/sujeeth2003/sparse-autoencoder", teaser:"Mechanistic-interpretability experiment: learning sparse, interpretable features from model activations.", tags:["PyTorch","Interpretability"], bullets:[
+      "Colab notebook and sanity-check script for training a sparse autoencoder on activations. Work in progress."
+    ]},
   ],
 
   data: [
