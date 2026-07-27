@@ -240,6 +240,19 @@ const FIELD_PROJECTS = {
       "Trained Isolation Forest and LSTM autoencoder models for operational monitoring.",
       "Evaluated against false-positive rate and detection latency to reflect real production constraints."
     ]},
+    { year:"2026", title:"Tank Level Control over Modbus/TCP", link:"https://github.com/sujeeth2003/tank-control-modbus", teaser:"Real-time PID control of a simulated tank through a real Modbus/TCP server, in Python and C++, with per-decision latency measured.", tags:["C++","Modbus","Control Systems","Real-time"], bullets:[
+      "Implemented Modbus/TCP from the spec (client and server) and a plant with actuator lag, sensor noise and an independent high-level safety interlock.",
+      "C++ PID controller at 1 kHz: 79 us median and 434 us p99 sensor-to-actuator round trip on loopback, zero missed cycles.",
+      "Tests check the encoded frame against the spec example, the tank's analytic equilibrium, and that the interlock holds even with the valve commanded fully open."
+    ]},
+    { year:"2026", title:"Remaining Useful Life Prediction", link:"https://github.com/sujeeth2003/remaining-useful-life-turbofan", teaser:"Turbofan-style RUL regression evaluated by held-out engine, not random rows.", tags:["Python","Random Forest","Gradient Boosting"], bullets:[
+      "Causal rolling-window and slope features per engine, evaluated with cross-validation grouped by engine to avoid the leakage a random split causes.",
+      "Reported RMSE at the last cycle (where maintenance is decided) and the asymmetric NASA score, on a synthetic fleet with a loader for the real C-MAPSS files."
+    ]},
+    { year:"2026", title:"Git-style Version Control for CSV Files", link:"https://github.com/sujeeth2003/csv-version-control", teaser:"Row-level change tracking with stable change IDs and exact restore of any version.", tags:["Python","Version Control","Data Engineering"], bullets:[
+      "Stores content-addressed snapshots plus a structured change list (rows added/deleted, cells modified, columns changed) so reordering rows is not a change.",
+      "Exact checkout of every historical version, including across schema changes; 8 tests."
+    ]},
   ],
 };
 
