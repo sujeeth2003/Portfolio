@@ -173,6 +173,11 @@ const FIELD_PROJECTS = {
       "Achieved over 90% coverage on defined coverpoints; random testing surfaced bugs directed tests had missed.",
       "Wrote and proved formal properties (ordering, mutual exclusion of full/empty) for a FIFO/arbiter with SymbiYosys."
     ]},
+    { year:"2026", title:"RISC-V on an FPGA: Timing Closure and Formal Equivalence", link:"https://github.com/sujeeth2003/rtl-digital-design", linkText:"Tier 4 on GitHub", teaser:"The pipelined core placed and routed for a Lattice ECP5, with Fmax raised from 56 to 77 MHz and gate-level synthesis proven equivalent to the RTL.", tags:["SystemVerilog","ECP5","nextpnr","Yosys","Formal"], bullets:[
+      "Read the nextpnr critical path and fixed the worst offender each round: reset only control bits on a flush, one subtraction for both compares, LUT RAM instead of block RAM, forwarding selects computed a stage early.",
+      "Re-ran co-simulation against a golden instruction-set simulator after every change (8 directed + 200 random hazard-stress programs match).",
+      "Proved the gate-level netlists of the ALU, adders, shifter and hazard unit equivalent to their RTL. Built the bitstream; not yet run on a board."
+    ]},
   ],
 
   quant: [],
