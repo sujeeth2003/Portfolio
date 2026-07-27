@@ -180,7 +180,14 @@ const FIELD_PROJECTS = {
     ]},
   ],
 
-  quant: [],
+  quant: [
+    { year:"2025", title:"Pairs Trading Demo", link:"https://github.com/sujeeth2003/PairTrade", teaser:"Interactive demonstration of a mean-reversion strategy on a cointegrated pair.", tags:["JavaScript","Mean Reversion","Statistics"], bullets:[
+      "Single-file interactive demo of trading the spread between two related instruments and how entry and exit thresholds change results."
+    ]},
+    { year:"2025", title:"Quant Learning Platform", link:"https://github.com/sujeeth2003/quant-learning-platform", teaser:"Single-page interactive study tool for quantitative finance concepts.", tags:["JavaScript","Quant Finance"], bullets:[
+      "Self-contained web app for practising quantitative finance concepts; opens in any browser with no build step."
+    ]},
+  ],
 
   ml: [
     { year:"2026", title:"Eureka — Research Lineage Intelligence Platform", link:"https://github.com/sujeeth2003/eureka-research-lineage", teaser:"Relational system modeling intellectual lineage and industry adoption of research ideas in a normalized 3NF schema.", tags:["SQLite","SQL","Graph Analytics"], bullets:[
