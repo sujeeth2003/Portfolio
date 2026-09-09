@@ -50,8 +50,9 @@ body::before{
   content:'';position:fixed;inset:0;z-index:-2;background-color:#b7c7db;
   background-image:url('assets/hero-bg.jpg');
   background-repeat:no-repeat;background-position:center;background-attachment:fixed;
-  background-size:Contain;
+  background-size:Cover;
 }
+@media (max-width: 768px) { body::before { background-attachment: scroll;}}
 body::after{
   content:'';position:fixed;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(238,243,249,.38),rgba(238,243,249,.62) 35%,rgba(238,243,249,.8));
