@@ -227,6 +227,6 @@ const EDUCATION = [
    will render next to the name; leave it out and it's just a pill. */
 const YT_CHANNELS = [
   { name:"Ben Eater",   url:"https://youtube.com/playlist?list=PLowKtXNTBypGqImE405J2565dvjafglHU&si=kxeag1LRDNLbxiN3", thumb:"https://yt3.googleusercontent.com/ytc/AIdro_kzQ9Fabth3QHyk1YLRHA62goVPgxJdd68G0CPIs0tU3A=s160-c-k-c0x00ffffff-no-rj" },
-  { name:"3blue1brown",   url:"#https://www.youtube.com/@3blue1brown", thumb:"https://yt3.googleusercontent.com/ytc/AIdro_nFzZFPLxPZRHcE3SSwzdrbuWqfoWYwLAu0_2iO6blQYAU=s160-c-k-c0x00ffffff-no-rj" },
+  { name:"3blue1brown",   url:"https://www.youtube.com/@3blue1brown", thumb:"https://yt3.googleusercontent.com/ytc/AIdro_nFzZFPLxPZRHcE3SSwzdrbuWqfoWYwLAu0_2iO6blQYAU=s160-c-k-c0x00ffffff-no-rj" },
   { name:"C++ Talks - Low-Latency Related", url:"https://www.youtube.com/playlist?list=PLrR3oTpJZ9TguAl26k7C1f8uWLPZv27BK", thumb:"https://i.ytimg.com/vi/nX5CXx1gdEg/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAzn-LFEctZTxTd7tBzK2DFMpBEsw" },
 ];
