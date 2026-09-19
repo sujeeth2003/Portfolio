@@ -264,7 +264,7 @@ const SKILLS = [
   { label:"Deep Learning",         items:"PyTorch, TensorFlow, Hugging Face, transformer architectures" },
   { label:"LLM Systems",           items:"LangChain, LangGraph, RAG, prompt engineering" },
   { label:"Data Engineering",      items:"AWS (S3, Lambda, Athena, Step Functions), PostgreSQL, MongoDB, Redis" },
-  { label:"Industrial Systems",    items:"PLC programming (Siemens, Rockwell), SCADA/HMI, DAQ, sensors" },
+  { label:"Industrial Systems",    items:"PLC programming (Siemens, Rockwell), Modbus, SCADA/HMI, DAQ, sensors, real-time control" },
   { label:"Languages",             items:"Python, C++, SQL, MATLAB, Embedded C, Verilog/SystemVerilog" },
 ];
 
