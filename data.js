@@ -57,7 +57,7 @@ const SITE = {
 /* ---- deck cards on the "pick a field" selector ---- */
 const DECK = [
   { field:"systems",  title:"Low-Latency Systems",   desc:"C++ matching engine, tuned version by version.",        thumb:"assets/thumb-systems.svg" },
-  { field:"hardware", title:"RTL & Hardware",         desc:"A pipelined RISC-V CPU, verified in UVM.",               thumb:"assets/thumb-hardware.svg" },
+  { field:"hardware", title:"RTL & Hardware",         desc:"A pipelined RISC-V CPU, checked against a golden model and formal proofs.",               thumb:"assets/thumb-hardware.svg" },
   { field:"quant",    title:"Quant & Trading",        desc:"Regime detection, backtested honestly.",                thumb:"assets/thumb-quant.svg" },
   { field:"ml",       title:"Applied ML & GenAI",     desc:"A DeepSeek-style LLM, built from scratch.",              thumb:"assets/thumb-ml.svg" },
   { field:"data",     title:"Data & Industrial",      desc:"100 kHz sensor data to production pipelines.",          thumb:"assets/thumb-data.svg" },
