@@ -79,9 +79,9 @@ const FLAGSHIPS = {
     linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/limit-order-book-matching-engine",
   },
   hardware: {
-    title:"5-Stage Pipelined RISC-V CPU + UVM Verification",
-    lede:"A fetch &rarr; decode &rarr; execute &rarr; memory &rarr; writeback RISC-V-lite pipeline in SystemVerilog, hardened with hazard forwarding, a CDC bridge, and a full UVM regression.",
-    stats:[ {value:"100+",label:"random test regression"}, {value:"0",label:"scoreboard mismatches"}, {value:"&gt;90%",label:"functional coverage"} ],
+    title:"5-Stage Pipelined RISC-V CPU, Verified Three Ways",
+    lede:"A fetch &rarr; decode &rarr; execute &rarr; memory &rarr; writeback RV32I-subset pipeline in SystemVerilog with hazard forwarding, checked by co-simulation against a golden model, by formal proofs, and by placing and routing it for an FPGA.",
+    stats:[ {value:"208/208",label:"programs match the golden ISS"}, {value:"77 MHz",label:"ECP5 Fmax, up from 56"}, {value:"1.29",label:"CPI over the 208 programs"} ],
     bullets:[
       "<strong>Hazards:</strong> Forwarding unit (EX/MEM and MEM/WB &rarr; EX) plus stall and branch-flush logic, verified against a hand-built EX-EX / MEM-EX / load-use hazard truth table.",
       "<strong>Verification:</strong> Full UVM environment (driver, monitor, sequencer, scoreboard, agent) driving instruction sequences against a reference model.",
