@@ -89,7 +89,7 @@ const FLAGSHIPS = {
       "<strong>FPGA:</strong> Placed and routed for a Lattice ECP5 with Yosys and nextpnr; raised Fmax from 56 to 77 MHz by reading the critical path, and proved the synthesized gate-level netlists equivalent to the RTL. Not yet run on a board.",
       "<strong>I/O:</strong> AXI-Lite slave with VALID/READY handshakes, 60k random transactions with random delays, handshake rules proven.",
     ],
-    stack:["SystemVerilog","UVM","SVA","SymbiYosys","AXI-Lite"],
+    stack:["SystemVerilog","SymbiYosys","Yosys / nextpnr","CXXRTL","AXI-Lite"],
     linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/rtl-digital-design",
   },
   quant: {
