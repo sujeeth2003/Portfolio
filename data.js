@@ -239,10 +239,10 @@ const FIELD_PROJECTS = {
       "Built an ETL pipeline from source extraction through JSON schema generation into AWS S3, feeding an LLM/RAG system.",
       "Set up MongoDB for flexible access patterns and Redis for caching hot queries, optimizing SQL for a filtering page that needed to feel instant."
     ]},
-    { year:"2025", title:"Time-Series Anomaly Detection, Industrial Sensor Data", link:"https://github.com/sujeeth2003/time-series-anomaly-detection", teaser:"Unsupervised and supervised anomaly detection on multivariate industrial sensor streams.", tags:["Isolation Forest","LSTM Autoencoder","Feature Engineering"], bullets:[
-      "Engineered rolling statistical and frequency-domain features from multivariate sensor streams.",
-      "Trained Isolation Forest and LSTM autoencoder models for operational monitoring.",
-      "Evaluated against false-positive rate and detection latency to reflect real production constraints."
+    { year:"2025", title:"Time-Series Anomaly Detection, Industrial Sensor Data", link:"https://github.com/sujeeth2003/time-series-anomaly-detection", teaser:"Unsupervised and supervised anomaly detection on multivariate sensor streams, judged by event recall, false alarms per hour and detection delay.", tags:["Isolation Forest","Gradient Boosting","Feature Engineering"], bullets:[
+      "Engineered causal rolling statistics, slope and FFT high-frequency energy per channel, with a test that changing the future never changes an earlier feature row.",
+      "Compared a z-score baseline, Isolation Forest and gradient boosting over 8 seeds at a budget of 6 false alarms per hour.",
+      "Isolation Forest caught 98% of events with a median delay of 3.4 s, versus 77% for the z-score baseline and 62% for the supervised model."
     ]},
     { year:"2026", title:"Tank Level Control over Modbus/TCP", link:"https://github.com/sujeeth2003/tank-control-modbus", teaser:"Real-time PID control of a simulated tank through a real Modbus/TCP server, in Python and C++, with per-decision latency measured.", tags:["C++","Modbus","Control Systems","Real-time"], bullets:[
       "Implemented Modbus/TCP from the spec (client and server) and a plant with actuator lag, sensor noise and an independent high-level safety interlock.",
