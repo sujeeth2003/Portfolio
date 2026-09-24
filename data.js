@@ -173,9 +173,21 @@ const FIELD_PROJECTS = {
       "Achieved over 90% coverage on defined coverpoints; random testing surfaced bugs directed tests had missed.",
       "Wrote and proved formal properties (ordering, mutual exclusion of full/empty) for a FIFO/arbiter with SymbiYosys."
     ]},
+    { year:"2026", title:"RISC-V on an FPGA: Timing Closure and Formal Equivalence", link:"https://github.com/sujeeth2003/rtl-digital-design", linkText:"Tier 4 on GitHub", teaser:"The pipelined core placed and routed for a Lattice ECP5, with Fmax raised from 56 to 77 MHz and gate-level synthesis proven equivalent to the RTL.", tags:["SystemVerilog","ECP5","nextpnr","Yosys","Formal"], bullets:[
+      "Read the nextpnr critical path and fixed the worst offender each round: reset only control bits on a flush, one subtraction for both compares, LUT RAM instead of block RAM, forwarding selects computed a stage early.",
+      "Re-ran co-simulation against a golden instruction-set simulator after every change (8 directed + 200 random hazard-stress programs match).",
+      "Proved the gate-level netlists of the ALU, adders, shifter and hazard unit equivalent to their RTL. Built the bitstream; not yet run on a board."
+    ]},
   ],
 
-  quant: [],
+  quant: [
+    { year:"2025", title:"Pairs Trading Demo", link:"https://github.com/sujeeth2003/PairTrade", teaser:"Interactive demonstration of a mean-reversion strategy on a cointegrated pair.", tags:["JavaScript","Mean Reversion","Statistics"], bullets:[
+      "Single-file interactive demo of trading the spread between two related instruments and how entry and exit thresholds change results."
+    ]},
+    { year:"2025", title:"Quant Learning Platform", link:"https://github.com/sujeeth2003/quant-learning-platform", teaser:"Single-page interactive study tool for quantitative finance concepts.", tags:["JavaScript","Quant Finance"], bullets:[
+      "Self-contained web app for practising quantitative finance concepts; opens in any browser with no build step."
+    ]},
+  ],
 
   ml: [
     { year:"2026", title:"Eureka — Research Lineage Intelligence Platform", link:"https://github.com/sujeeth2003/eureka-research-lineage", teaser:"Relational system modeling intellectual lineage and industry adoption of research ideas in a normalized 3NF schema.", tags:["SQLite","SQL","Graph Analytics"], bullets:[
