@@ -169,10 +169,11 @@ const FIELD_PROJECTS = {
       "Generated Graphviz DOT output and rendered digital circuit schematics automatically to SVG.",
       "Modularized into independent lexing, parsing, AST, netlist, and schematic stages with exception-based error diagnostics."
     ]},
-    { year:"2024", title:"Constrained-Random &amp; Formal Verification Suite", link:"https://github.com/sujeeth2003/rtl-digital-design", teaser:"SystemVerilog OOP testbenches with functional coverage, plus formal proofs on a FIFO/arbiter block.", tags:["SystemVerilog","UVM","Formal","Coverage"], bullets:[
-      "Rebuilt ALU/FIFO testbenches as class-based, constrained-random environments with a self-checking scoreboard and functional coverage.",
-      "Achieved over 90% coverage on defined coverpoints; random testing surfaced bugs directed tests had missed.",
-      "Wrote and proved formal properties (ordering, mutual exclusion of full/empty) for a FIFO/arbiter with SymbiYosys."
+    { year:"2024", title:"Randomized &amp; Formal Verification of RTL Blocks", link:"https://github.com/sujeeth2003/rtl-digital-design", teaser:"Adders, ALU, FIFO, CDC and AXI-Lite blocks checked with millions of random cases against independent C++ models, plus formal proofs.", tags:["SystemVerilog","CXXRTL","Formal","Random Testing"], bullets:[
+      "Checked the ALU with 1.3M random operations against an independent 64-bit C++ model, and the sync FIFO with 1M random cycles against <code>std::deque</code>.",
+      "Tested the 8x8 multiplier and priority encoder exhaustively (every input), and the async FIFO across two independently jittered clocks (153k transfers, no loss or reordering).",
+      "Proved properties with SymbiYosys: 8-bit ALU for all inputs, FIFO ordering and data integrity, adder and shifter equivalence to the behavioural operators.",
+      "Wrote a UVM environment for the FIFO (driver, monitor, sequencer, scoreboard, agent, coverage); its regression has not been run yet."
     ]},
     { year:"2026", title:"RISC-V on an FPGA: Timing Closure and Formal Equivalence", link:"https://github.com/sujeeth2003/rtl-digital-design", linkText:"Tier 4 on GitHub", teaser:"The pipelined core placed and routed for a Lattice ECP5, with Fmax raised from 56 to 77 MHz and gate-level synthesis proven equivalent to the RTL.", tags:["SystemVerilog","ECP5","nextpnr","Yosys","Formal"], bullets:[
       "Read the nextpnr critical path and fixed the worst offender each round: reset only control bits on a flush, one subtraction for both compares, LUT RAM instead of block RAM, forwarding selects computed a stage early.",
