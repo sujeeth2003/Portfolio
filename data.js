@@ -57,7 +57,7 @@ const SITE = {
 /* ---- deck cards on the "pick a field" selector ---- */
 const DECK = [
   { field:"systems",  title:"Low-Latency Systems",   desc:"C++ matching engine, tuned version by version.",        thumb:"assets/thumb-systems.svg" },
-  { field:"hardware", title:"RTL & Hardware",         desc:"A pipelined RISC-V CPU, verified in UVM.",               thumb:"assets/thumb-hardware.svg" },
+  { field:"hardware", title:"RTL & Hardware",         desc:"A pipelined RISC-V CPU, checked against a golden model and formal proofs.",               thumb:"assets/thumb-hardware.svg" },
   { field:"quant",    title:"Quant & Trading",        desc:"Regime detection, backtested honestly.",                thumb:"assets/thumb-quant.svg" },
   { field:"ml",       title:"Applied ML & GenAI",     desc:"A DeepSeek-style LLM, built from scratch.",              thumb:"assets/thumb-ml.svg" },
   { field:"data",     title:"Data & Industrial",      desc:"100 kHz sensor data to production pipelines.",          thumb:"assets/thumb-data.svg" },
@@ -79,16 +79,17 @@ const FLAGSHIPS = {
     linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/limit-order-book-matching-engine",
   },
   hardware: {
-    title:"5-Stage Pipelined RISC-V CPU + UVM Verification",
-    lede:"A fetch &rarr; decode &rarr; execute &rarr; memory &rarr; writeback RISC-V-lite pipeline in SystemVerilog, hardened with hazard forwarding, a CDC bridge, and a full UVM regression.",
-    stats:[ {value:"100+",label:"random test regression"}, {value:"0",label:"scoreboard mismatches"}, {value:"&gt;90%",label:"functional coverage"} ],
+    title:"5-Stage Pipelined RISC-V CPU, Verified Three Ways",
+    lede:"A fetch &rarr; decode &rarr; execute &rarr; memory &rarr; writeback RV32I-subset pipeline in SystemVerilog with hazard forwarding, checked by co-simulation against a golden model, by formal proofs, and by placing and routing it for an FPGA.",
+    stats:[ {value:"208/208",label:"programs match the golden ISS"}, {value:"77 MHz",label:"ECP5 Fmax, up from 56"}, {value:"1.29",label:"CPI over the 208 programs"} ],
     bullets:[
-      "<strong>Hazards:</strong> Forwarding unit (EX/MEM and MEM/WB &rarr; EX) plus stall and branch-flush logic, verified against a hand-built EX-EX / MEM-EX / load-use hazard truth table.",
-      "<strong>Verification:</strong> Full UVM environment (driver, monitor, sequencer, scoreboard, agent) driving instruction sequences against a reference model.",
-      "<strong>Formal:</strong> Proved FIFO/arbiter ordering properties with SymbiYosys, catching a corner case the UVM random regression had missed.",
-      "<strong>I/O:</strong> AXI-Lite slave with VALID/READY handshake logic, protocol-checked with SystemVerilog assertions.",
+      "<strong>Hazards:</strong> Forwarding unit (EX/MEM and MEM/WB &rarr; EX), load-use stall and branch flush, exercised by 200 random hazard-stress programs.",
+      "<strong>Co-simulation:</strong> Every register, all 1024 data words and the retired-instruction count compared with a Python instruction-set simulator after each of 8 directed + 200 random programs.",
+      "<strong>Formal:</strong> With SymbiYosys, proved FIFO ordering and data integrity, every opcode and flag of an 8-bit ALU, and Gray-code properties of the CDC pointers.",
+      "<strong>FPGA:</strong> Placed and routed for a Lattice ECP5 with Yosys and nextpnr; raised Fmax from 56 to 77 MHz by reading the critical path, and proved the synthesized gate-level netlists equivalent to the RTL. Not yet run on a board.",
+      "<strong>I/O:</strong> AXI-Lite slave with VALID/READY handshakes, 60k random transactions with random delays, handshake rules proven.",
     ],
-    stack:["SystemVerilog","UVM","SVA","SymbiYosys","AXI-Lite"],
+    stack:["SystemVerilog","SymbiYosys","Yosys / nextpnr","CXXRTL","AXI-Lite"],
     linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/rtl-digital-design",
   },
   quant: {
