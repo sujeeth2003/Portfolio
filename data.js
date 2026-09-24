@@ -203,10 +203,11 @@ const FIELD_PROJECTS = {
       "Used Ray to answer many questions in parallel across worker processes, and Docker Compose to start the API with Redis; monitoring records calls, failures and latency per agent.",
       "Found and fixed four real failures with tests (17 in total): wrong column names, a pandas API change, a silent wrong answer, and a crash that dropped state."
     ]},
-    { year:"2025", title:"Anime Recommendation System", link:"https://github.com/sujeeth2003/anime-recommender", teaser:"Hybrid ALS collaborative filtering and TF-IDF content embeddings over 73k users x 12k items.", tags:["ALS","TF-IDF","Sparse Matrices"], bullets:[
-      "Processed 73k users by 12k items into sparse implicit-feedback interaction matrices.",
-      "Trained ALS-based collaborative filtering, reducing RMSE by 38% over a popularity baseline.",
-      "Integrated TF-IDF content embeddings into hybrid scoring, evaluated with Precision@K and Recall@K."
+    { year:"2025", title:"Anime Recommendation System", link:"https://github.com/sujeeth2003/anime-recommender", teaser:"Popularity, bias, ALS, implicit ALS and content models on MyAnimeList ratings: 15k users, 12,876 titles, 2.19M ratings.", tags:["ALS","Implicit ALS","TF-IDF","Sparse Matrices"], bullets:[
+      "Sampled 15,000 users (20+ ratings each) from the 24M-rating MyAnimeList 2023 dataset into a sparse user-by-title matrix, with an 80/20 split per user.",
+      "Explicit ALS cut RMSE by 19% versus a popularity baseline (1.515 to 1.232) but ranked worse than popularity, because rating prediction is not ranking.",
+      "Implicit-feedback ALS reached NDCG@10 of 0.338, 7.9x the popularity baseline, with precision@10 of 0.256.",
+      "TF-IDF genre content scores did not improve top-N here; they are kept for titles nobody has rated yet."
     ]},
     { year:"2026", title:"Text-to-Image GAN with Held-Out Concept Combinations", link:"https://github.com/sujeeth2003/text-to-image-generator", teaser:"Text-conditioned GAN generating 32x32 images from sentences, tested on colour+shape pairs it never saw in training.", tags:["PyTorch","GAN","Text Conditioning"], bullets:[
       "Sentence embedding as the sum of word embeddings, and a matching-aware discriminator that also rejects real images paired with the wrong text.",
