@@ -197,10 +197,11 @@ const FIELD_PROJECTS = {
       "Modeled intellectual ancestry via self-join foreign keys, with SQL analytics for mentor productivity and industry adoption.",
       "Outlined a graph extension for centrality and community detection as a scaling path to PostgreSQL."
     ]},
-    { year:"2025", title:"Multi-Agent Analytics Orchestration Platform", link:"https://github.com/sujeeth2003/multi-agent-analytics", teaser:"Planner/Retriever/Executor/Critic agents on LangGraph with concurrent execution via Ray and Redis.", tags:["LangGraph","Ray","Redis","FastAPI"], bullets:[
-      "Orchestrated four agent roles with vector-based memory workflows.",
-      "Enabled concurrent execution across agents using Ray and Redis, monitoring latency and failure rates.",
-      "Containerized inference services with FastAPI and Docker for modular deployment."
+    { year:"2025", title:"Multi-Agent Analytics Orchestration Platform", link:"https://github.com/sujeeth2003/multi-agent-analytics", teaser:"Planner, executor, critic and reporter agents on LangGraph, served with FastAPI, cached in Redis, parallelised with Ray and packaged with Docker.", tags:["LangGraph","Ray","Redis","FastAPI","Docker"], bullets:[
+      "Wired four agents as a LangGraph state machine with a bounded replan loop: the critic tells the planner exactly what failed (for example a wrong column name) and it retries at most three times, then answers honestly that it could not.",
+      "Exposed it through FastAPI (<code>/ask</code>, <code>/health</code>, <code>/metrics</code>); Redis caches successful answers so a repeated question skips every agent.",
+      "Used Ray to answer many questions in parallel across worker processes, and Docker Compose to start the API with Redis; monitoring records calls, failures and latency per agent.",
+      "Found and fixed four real failures with tests (17 in total): wrong column names, a pandas API change, a silent wrong answer, and a crash that dropped state."
     ]},
     { year:"2025", title:"Anime Recommendation System", link:"https://github.com/sujeeth2003/anime-recommender", teaser:"Hybrid ALS collaborative filtering and TF-IDF content embeddings over 73k users x 12k items.", tags:["ALS","TF-IDF","Sparse Matrices"], bullets:[
       "Processed 73k users by 12k items into sparse implicit-feedback interaction matrices.",
