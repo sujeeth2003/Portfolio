@@ -136,13 +136,13 @@ const FLAGSHIPS = {
 const FIELD_PROJECTS = {
 
   systems: [
-    { year:"2025", title:"Multi-Producer Market Data Feed Handler", teaser:"UDP feed handler optimized across six versions from a mutex queue to kernel-bypass, core-pinned ingestion.", tags:["C++","Atomics","AF_PACKET","Kernel Bypass"], bullets:[
+    { year:"2025", title:"Multi-Producer Market Data Feed Handler", link:"https://github.com/sujeeth2003/market-data-feed-handler", teaser:"UDP feed handler optimized across six versions from a mutex queue to kernel-bypass, core-pinned ingestion.", tags:["C++","Atomics","AF_PACKET","Kernel Bypass"], bullets:[
       "v1&rarr;v2: Diagnosed futex sleep/wake round-trips as the tail-latency bottleneck, replaced with a lock-free SPSC ring buffer using memory_order_release/acquire.",
       "v3: Found false sharing between head/tail atomics with perf c2c cache-to-cache profiling, fixed with alignas(64) padding.",
       "v4: Gave each producer its own SPSC ring instead of a CAS-based MPSC queue, avoiding the ABA problem entirely.",
       "v5-v6: Kernel-bypass via AF_PACKET/PACKET_MMAP, then core pinning, isolated CPUs, and huge pages to cut TLB misses."
     ]},
-    { year:"2025", title:"Custom Low-Overhead Latency Tracing Tool", teaser:"RDTSC-based, per-thread tracer built to measure the feed handler and matching engine at nanosecond granularity.", tags:["C++","RDTSC","thread_local","NIC Timestamping"], bullets:[
+    { year:"2025", title:"Custom Low-Overhead Latency Tracing Tool", link:"https://github.com/sujeeth2003/low-overhead-latency-tracer", teaser:"RDTSC-based, per-thread tracer built to measure the feed handler and matching engine at nanosecond granularity.", tags:["C++","RDTSC","thread_local","NIC Timestamping"], bullets:[
       "Replaced std::chrono and string labels with the RDTSC hardware cycle counter and integer IDs, cutting per-call overhead to single-digit nanoseconds.",
       "Gave each thread its own trace buffer to remove false sharing, merging and sorting off the hot path at shutdown.",
       "Correlated NIC hardware packet-arrival timestamps (SO_TIMESTAMPING) against application-level traces to isolate true wire-to-application latency.",
@@ -151,13 +151,13 @@ const FIELD_PROJECTS = {
   ],
 
   hardware: [
-    { year:"2024", title:"Verilog Compiler with AST Generation & Schematic Synthesis", teaser:"A C++ compiler for a subset of Verilog: lexer, parser, AST, gate-level netlist, and automatic circuit visualization.", tags:["C++","Compilers","AST","Graphviz"], bullets:[
+    { year:"2024", title:"Verilog Compiler with AST Generation & Schematic Synthesis", link:"https://github.com/sujeeth2003/verilog-compiler", teaser:"A C++ compiler for a subset of Verilog: lexer, parser, AST, gate-level netlist, and automatic circuit visualization.", tags:["C++","Compilers","AST","Graphviz"], bullets:[
       "Built a lexer and recursive-descent parser with operator precedence, constructing an AST for Verilog modules and expressions.",
       "Compiled the AST into a gate-level netlist (AND, OR, XOR, NOT, ADD, SUB) with temporary net generation.",
       "Generated Graphviz DOT output and rendered digital circuit schematics automatically to SVG.",
       "Modularized into independent lexing, parsing, AST, netlist, and schematic stages with exception-based error diagnostics."
     ]},
-    { year:"2024", title:"Constrained-Random &amp; Formal Verification Suite", teaser:"SystemVerilog OOP testbenches with functional coverage, plus formal proofs on a FIFO/arbiter block.", tags:["SystemVerilog","UVM","Formal","Coverage"], bullets:[
+    { year:"2024", title:"Constrained-Random &amp; Formal Verification Suite", link:"https://github.com/sujeeth2003/rtl-digital-design", teaser:"SystemVerilog OOP testbenches with functional coverage, plus formal proofs on a FIFO/arbiter block.", tags:["SystemVerilog","UVM","Formal","Coverage"], bullets:[
       "Rebuilt ALU/FIFO testbenches as class-based, constrained-random environments with a self-checking scoreboard and functional coverage.",
       "Achieved over 90% coverage on defined coverpoints; random testing surfaced bugs directed tests had missed.",
       "Wrote and proved formal properties (ordering, mutual exclusion of full/empty) for a FIFO/arbiter with SymbiYosys."
@@ -167,17 +167,17 @@ const FIELD_PROJECTS = {
   quant: [],
 
   ml: [
-    { year:"2026", title:"Eureka — Research Lineage Intelligence Platform", teaser:"Relational system modeling intellectual lineage and industry adoption of research ideas in a normalized 3NF schema.", tags:["SQLite","SQL","Graph Analytics"], bullets:[
+    { year:"2026", title:"Eureka — Research Lineage Intelligence Platform", link:"https://github.com/sujeeth2003/eureka-research-lineage", teaser:"Relational system modeling intellectual lineage and industry adoption of research ideas in a normalized 3NF schema.", tags:["SQLite","SQL","Graph Analytics"], bullets:[
       "Engineered a 5-entity normalized schema: Mentors, Authors, Papers (self-referential lineage), PaperAuthors, CompanyAdoption.",
       "Modeled intellectual ancestry via self-join foreign keys, with SQL analytics for mentor productivity and industry adoption.",
       "Outlined a graph extension for centrality and community detection as a scaling path to PostgreSQL."
     ]},
-    { year:"2025", title:"Multi-Agent Analytics Orchestration Platform", teaser:"Planner/Retriever/Executor/Critic agents on LangGraph with concurrent execution via Ray and Redis.", tags:["LangGraph","Ray","Redis","FastAPI"], bullets:[
+    { year:"2025", title:"Multi-Agent Analytics Orchestration Platform", link:"https://github.com/sujeeth2003/multi-agent-analytics", teaser:"Planner/Retriever/Executor/Critic agents on LangGraph with concurrent execution via Ray and Redis.", tags:["LangGraph","Ray","Redis","FastAPI"], bullets:[
       "Orchestrated four agent roles with vector-based memory workflows.",
       "Enabled concurrent execution across agents using Ray and Redis, monitoring latency and failure rates.",
       "Containerized inference services with FastAPI and Docker for modular deployment."
     ]},
-    { year:"2025", title:"Anime Recommendation System", teaser:"Hybrid ALS collaborative filtering and TF-IDF content embeddings over 73k users x 12k items.", tags:["ALS","TF-IDF","Sparse Matrices"], bullets:[
+    { year:"2025", title:"Anime Recommendation System", link:"https://github.com/sujeeth2003/anime-recommender", teaser:"Hybrid ALS collaborative filtering and TF-IDF content embeddings over 73k users x 12k items.", tags:["ALS","TF-IDF","Sparse Matrices"], bullets:[
       "Processed 73k users by 12k items into sparse implicit-feedback interaction matrices.",
       "Trained ALS-based collaborative filtering, reducing RMSE by 38% over a popularity baseline.",
       "Integrated TF-IDF content embeddings into hybrid scoring, evaluated with Precision@K and Recall@K."
@@ -185,17 +185,17 @@ const FIELD_PROJECTS = {
   ],
 
   data: [
-    { year:"2025", title:"AWS Data Pipeline (S3 / Athena / Lambda / Step Functions)", teaser:"End-to-end AWS pipeline with least-privilege IAM roles scoped per function.", tags:["AWS","Boto3","Step Functions","IAM"], bullets:[
+    { year:"2025", title:"AWS Data Pipeline (S3 / Athena / Lambda / Step Functions)", link:"https://github.com/sujeeth2003/aws-healthcare-pipeline", teaser:"End-to-end AWS pipeline with least-privilege IAM roles scoped per function.", tags:["AWS","Boto3","Step Functions","IAM"], bullets:[
       "Built an S3-to-Athena pipeline with Boto3 for refining data and Lambda triggered automatically on new S3 objects.",
       "Orchestrated the pipeline end-to-end with AWS Step Functions.",
       "Scoped each function to its own least-privilege IAM role instead of a shared broad-access role."
     ]},
-    { year:"2025", title:"Healthcare Data &amp; RAG Pipeline, MedLaunch Concepts", teaser:"Hierarchical JSON database of hospital coding standards feeding a customer-facing RAG chatbot.", tags:["ETL","AWS S3","MongoDB","Redis"], bullets:[
+    { year:"2025", title:"Healthcare Data &amp; RAG Pipeline, MedLaunch Concepts", link:"https://github.com/sujeeth2003/dmv-rag-pipeline", linkText:"Demo on synthetic data", teaser:"Hierarchical JSON database of hospital coding standards feeding a customer-facing RAG chatbot.", tags:["ETL","AWS S3","MongoDB","Redis"], bullets:[
       "Extracted DMV and state hospital-code standards into a hierarchical JSON schema with ancestry structure for faster grouping and lower query latency.",
       "Built an ETL pipeline from source extraction through JSON schema generation into AWS S3, feeding an LLM/RAG system.",
       "Set up MongoDB for flexible access patterns and Redis for caching hot queries, optimizing SQL for a filtering page that needed to feel instant."
     ]},
-    { year:"2025", title:"Time-Series Anomaly Detection, Industrial Sensor Data", teaser:"Unsupervised and supervised anomaly detection on multivariate industrial sensor streams.", tags:["Isolation Forest","LSTM Autoencoder","Feature Engineering"], bullets:[
+    { year:"2025", title:"Time-Series Anomaly Detection, Industrial Sensor Data", link:"https://github.com/sujeeth2003/time-series-anomaly-detection", teaser:"Unsupervised and supervised anomaly detection on multivariate industrial sensor streams.", tags:["Isolation Forest","LSTM Autoencoder","Feature Engineering"], bullets:[
       "Engineered rolling statistical and frequency-domain features from multivariate sensor streams.",
       "Trained Isolation Forest and LSTM autoencoder models for operational monitoring.",
       "Evaluated against false-positive rate and detection latency to reflect real production constraints."
