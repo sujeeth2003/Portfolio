@@ -572,6 +572,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
 
 <script src="data.js"></script>
 <script>if(SHOW_REM) document.write('<script src="rem-dialogues.js"><\/script>');</script>
+<script src="env.local.js" onerror="void 0"></script>
 <script>
 /* hydrate every plain-text string from SITE (data.js) */
 const FIELD_ID_LIST=Object.keys(SITE.fields);
@@ -850,14 +851,22 @@ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   document.querySelectorAll('.pcb-scene svg').forEach(svg=>{if(svg.pauseAnimations) svg.pauseAnimations();});
 }
 
-/* live2d rem widget */
+/* live2d rem widget - the model URL is injected at deploy time from the
+   REM_MODEL_URL GitHub Actions secret (see .github/workflows/deploy-pages.yml)
+   so it never sits in this file in plain text. Locally, put the same value
+   in env.local.js (gitignored) as window.REM_MODEL_URL to test the widget. */
 if(SHOW_REM) try{
-  L2Dwidget.init({
-    model:{ jsonPath:"https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models/live2d_evrstr/rem/model.json", scale:1.35 },
-    display:{ position:"right", width:200, height:280, hOffset:-6, vOffset:-38 },
-    mobile:{ show:true, scale:.8 },
-    react:{ opacityDefault:1, opacityOnHover:1 }
-  });
+  const remModelUrl = (typeof window.REM_MODEL_URL === "string" && !window.REM_MODEL_URL.startsWith("__"))
+    ? window.REM_MODEL_URL
+    : "__REM_MODEL_URL__";
+  if(!remModelUrl.startsWith("__")){
+    L2Dwidget.init({
+      model:{ jsonPath:remModelUrl, scale:1.35 },
+      display:{ position:"right", width:200, height:280, hOffset:-6, vOffset:-38 },
+      mobile:{ show:true, scale:.8 },
+      react:{ opacityDefault:1, opacityOnHover:1 }
+    });
+  }
 }catch(err){}
 
 /* mascot commentary - text lives in rem-dialogues.js */
