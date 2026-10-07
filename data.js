@@ -36,10 +36,10 @@ const SITE = {
      short label used in the nav bar and the hero pills */
   fields:{
     systems:{ nav:"Systems", pill:"Low-Latency Systems", eyebrow:"Arc 1 - Low-Latency Systems", title:"C++, from correct to fast" },
-    hardware:{ nav:"Hardware", pill:"RTL &amp; Hardware", eyebrow:"Arc 2 - RTL &amp; Hardware", title:"A CPU, verified the way a real one has to be" },
+    hardware:{ nav:"Hardware", pill:"RTL &amp; Hardware", eyebrow:"Arc 2 - RTL &amp; Hardware", title:"A pipelined CPU, from RTL to FPGA" },
     quant:{ nav:"Quant", pill:"Quant &amp; Trading", eyebrow:"Arc 3 - Quant &amp; Trading", title:"Regime detection, backtested honestly" },
     ml:{ nav:"ML", pill:"Applied ML", eyebrow:"Arc 4 - Applied ML &amp; GenAI", title:"Reading the paper, then rebuilding the model" },
-    data:{ nav:"Data", pill:"Data &amp; Industrial", eyebrow:"Arc 5 - Data Engineering &amp; Industrial Systems", title:"From 100 kHz sensor data to production pipelines" },
+    data:{ nav:"Data", pill:"Data &amp; Industrial", eyebrow:"Arc 5 - Data Engineering &amp; Industrial Systems", title:"From sensor data to production pipelines" },
   },
 
   skills:{ eyebrow:"Skills", title:"Technical stack" },
@@ -57,10 +57,10 @@ const SITE = {
 /* ---- deck cards on the "pick a field" selector ---- */
 const DECK = [
   { field:"systems",  title:"Low-Latency Systems",   desc:"C++ matching engine, tuned version by version.",        thumb:"assets/thumb-systems.svg" },
-  { field:"hardware", title:"RTL & Hardware",         desc:"A pipelined RISC-V CPU, checked against a golden model and formal proofs.",               thumb:"assets/thumb-hardware.svg" },
+  { field:"hardware", title:"RTL & Hardware",         desc:"A pipelined RISC-V CPU, checked against a golden model.",               thumb:"assets/thumb-hardware.svg" },
   { field:"quant",    title:"Quant & Trading",        desc:"Regime detection, backtested honestly.",                thumb:"assets/thumb-quant.svg" },
   { field:"ml",       title:"Applied ML & GenAI",     desc:"A DeepSeek-style LLM, built from scratch.",              thumb:"assets/thumb-ml.svg" },
-  { field:"data",     title:"Data & Industrial",      desc:"100 kHz sensor data to production pipelines.",          thumb:"assets/thumb-data.svg" },
+  { field:"data",     title:"Data & Industrial",      desc:"Sensor data to production pipelines.",          thumb:"assets/thumb-data.svg" },
 ];
 
 /* ---- flagship project per field ---- */
@@ -79,23 +79,22 @@ const FLAGSHIPS = {
     linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/limit-order-book-matching-engine",
   },
   hardware: {
-    title:"5-Stage Pipelined RISC-V CPU, Verified Three Ways",
-    lede:"A fetch &rarr; decode &rarr; execute &rarr; memory &rarr; writeback RV32I-subset pipeline in SystemVerilog with hazard forwarding, checked by co-simulation against a golden model, by formal proofs, and by placing and routing it for an FPGA.",
-    stats:[ {value:"208/208",label:"programs match the golden ISS"}, {value:"77 MHz",label:"ECP5 Fmax, up from 56"}, {value:"1.29",label:"CPI over the 208 programs"} ],
+    title:"5-Stage Pipelined RISC-V CPU",
+    lede:"A fetch &rarr; decode &rarr; execute &rarr; memory &rarr; writeback RV32I-subset pipeline in SystemVerilog with hazard forwarding, checked against a Python golden model and placed and routed for an FPGA.",
+    stats:[ {value:"208/208",label:"test programs match the golden model"}, {value:"56&rarr;77 MHz",label:"ECP5 Fmax after timing fixes"} ],
     bullets:[
-      "<strong>Hazards:</strong> Forwarding unit (EX/MEM and MEM/WB &rarr; EX), load-use stall and branch flush, exercised by 200 random hazard-stress programs.",
-      "<strong>Co-simulation:</strong> Every register, all 1024 data words and the retired-instruction count compared with a Python instruction-set simulator after each of 8 directed + 200 random programs.",
-      "<strong>Formal:</strong> With SymbiYosys, proved FIFO ordering and data integrity, every opcode and flag of an 8-bit ALU, and Gray-code properties of the CDC pointers.",
-      "<strong>FPGA:</strong> Placed and routed for a Lattice ECP5 with Yosys and nextpnr; raised Fmax from 56 to 77 MHz by reading the critical path, and proved the synthesized gate-level netlists equivalent to the RTL. Not yet run on a board.",
-      "<strong>I/O:</strong> AXI-Lite slave with VALID/READY handshakes, 60k random transactions with random delays, handshake rules proven.",
+      "<strong>Hazards:</strong> Forwarding unit, load-use stall and branch flush, tested with 200 random hazard-stress programs.",
+      "<strong>Co-simulation:</strong> After every program, registers, data memory and retired-instruction count are compared with a Python instruction-set simulator.",
+      "<strong>FPGA:</strong> Placed and routed for a Lattice ECP5 with Yosys and nextpnr, and sped up by reading the critical path. Not yet run on a board.",
+      "<strong>I/O:</strong> AXI-Lite slave with VALID/READY handshakes, tested with random transactions and delays.",
     ],
-    stack:["SystemVerilog","SymbiYosys","Yosys / nextpnr","CXXRTL","AXI-Lite"],
+    stack:["SystemVerilog","Yosys / nextpnr","CXXRTL","AXI-Lite"],
     linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/rtl-digital-design",
   },
   quant: {
     title:"Algorithmic Trading &amp; Portfolio Optimization",
     lede:"A from-scratch 2-state Gaussian HMM for market regime detection, benchmarked against momentum, mean-reversion, and buy-and-hold under realistic frictions.",
-    stats:[ {value:"12%",label:"annualized return"}, {value:"504-day",label:"rolling training window"}, {value:"155th",label:"IMC Prosperity 4, Rd. 1 manual trading"} ],
+    stats:[ {value:"2-state",label:"Gaussian HMM, built from scratch"}, {value:"504-day",label:"rolling training window"}, {value:"3",label:"benchmark strategies"} ],
     bullets:[
       "<strong>Regime model:</strong> Built the 2-state Gaussian HMM from scratch using the Forward-Backward algorithm and EM-style parameter updates.",
       "<strong>Benchmarks:</strong> Compared against Moving Average Momentum, Statistical Mean Reversion, and a Buy-and-Hold baseline.",
@@ -119,14 +118,14 @@ const FLAGSHIPS = {
     linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/deepseek-llm-from-scratch",
   },
   data: {
-    title:"Anomaly Detection on Aerospace Telemetry, Gantner Instruments",
-    lede:"A real-time ML pipeline over PLC/DAQ sensor channels during ISRO liquid-propulsion thruster test-stand runs, built end-to-end from wiring to inference.",
-    stats:[ {value:"50+",label:"simultaneous sensor channels"}, {value:"100 kHz",label:"24-bit ADC sampling"}, {value:"48 hr",label:"continuous burn-test logging"} ],
+    title:"Work Experience: Anomaly Detection on Rocket-Test Sensor Data",
+    lede:"At Gantner Instruments, I built a real-time anomaly-detection pipeline for sensor data from ISRO thruster test stands, from PLC wiring to model inference.",
+    stats:[ {value:"PLC &rarr; ML",label:"wiring to inference, end to end"}, {value:"2",label:"anomaly models: Isolation Forest, LSTM"} ],
     bullets:[
-      "<strong>Instrumentation:</strong> Designed and installed Siemens (TIA Portal) and Rockwell (Studio 5000, HSC blocks) PLC control with safety cutoff logic for 5N/10N thruster benches, wired via AutoCAD-designed panels.",
-      "<strong>Data path:</strong> Modbus master/slave networking, NTP time sync, and RS-232 DAQ links engineered to sustain full 100 kHz event-triggered logging over Gantner's GI-Bench protocol.",
-      "<strong>Models:</strong> Trained Isolation Forest and LSTM autoencoders on extracted time-series features to catch failures before they happened, implemented in LabVIEW compiled to native x86.",
-      "<strong>Tooling:</strong> Built a custom desktop app for live FFT/filter analysis, manual device control, and bidirectional Modbus communication with the PLCs.",
+      "<strong>Control:</strong> Programmed Siemens and Rockwell PLCs with safety cutoffs for small thruster test benches.",
+      "<strong>Data:</strong> Set up Modbus networking and DAQ links to log sensor data at full speed.",
+      "<strong>Models:</strong> Trained Isolation Forest and LSTM autoencoder models to flag failures early.",
+      "<strong>Tooling:</strong> Built a desktop app for live signal analysis and device control.",
     ],
     stack:["LabVIEW","Isolation Forest","LSTM Autoencoder","PLC / Modbus"],
     linkText:"Ask for a walkthrough", linkHref:"mailto:sujeeth@umd.edu",
@@ -144,10 +143,9 @@ const FIELD_PROJECTS = {
       "v5-v6: Kernel-bypass via AF_PACKET/PACKET_MMAP, then core pinning, isolated CPUs, and huge pages to cut TLB misses."
     ]},
     { year:"2025", title:"Custom Low-Overhead Latency Tracing Tool", link:"https://github.com/sujeeth2003/low-overhead-latency-tracer", teaser:"RDTSC-based, per-thread tracer built to measure the feed handler and matching engine at nanosecond granularity.", tags:["C++","RDTSC","thread_local","NIC Timestamping"], bullets:[
-      "Replaced std::chrono and string labels with the RDTSC hardware cycle counter and integer IDs, cutting per-call overhead to single-digit nanoseconds.",
-      "Gave each thread its own trace buffer to remove false sharing, merging and sorting off the hot path at shutdown.",
-      "Correlated NIC hardware packet-arrival timestamps (SO_TIMESTAMPING) against application-level traces to isolate true wire-to-application latency.",
-      "Quantified tracer overhead against perf and VTune with a concrete ns/iteration comparison."
+      "Replaced std::chrono and string labels with the RDTSC cycle counter and integer IDs: about 141 ns per call down to about 8 ns on my laptop.",
+      "Gave each thread its own trace buffer so threads share nothing on the hot path; merging and sorting happen offline.",
+      "Measured the tracer's own cost on a fixed workload, since a measuring tool can change what it measures."
     ]},
     { year:"2026", title:"Simplified Google File System", link:"https://github.com/sujeeth2003/google-file-system-simplified", teaser:"Master, chunkservers and client over real TCP: three-way replication, leases, record append, checksums, and re-replication after failures.", tags:["Python","Distributed Systems","Replication","TCP"], bullets:[
       "Split the metadata path (master: namespace, chunk versions, locations) from the data path (clients talk to chunkservers directly) so the master never becomes the bottleneck.",
@@ -169,16 +167,14 @@ const FIELD_PROJECTS = {
       "Generated Graphviz DOT output and rendered digital circuit schematics automatically to SVG.",
       "Modularized into independent lexing, parsing, AST, netlist, and schematic stages with exception-based error diagnostics."
     ]},
-    { year:"2024", title:"Randomized &amp; Formal Verification of RTL Blocks", link:"https://github.com/sujeeth2003/rtl-digital-design", teaser:"Adders, ALU, FIFO, CDC and AXI-Lite blocks checked with millions of random cases against independent C++ models, plus formal proofs.", tags:["SystemVerilog","CXXRTL","Formal","Random Testing"], bullets:[
-      "Checked the ALU with 1.3M random operations against an independent 64-bit C++ model, and the sync FIFO with 1M random cycles against <code>std::deque</code>.",
-      "Tested the 8x8 multiplier and priority encoder exhaustively (every input), and the async FIFO across two independently jittered clocks (153k transfers, no loss or reordering).",
-      "Proved properties with SymbiYosys: 8-bit ALU for all inputs, FIFO ordering and data integrity, adder and shifter equivalence to the behavioural operators.",
-      "Wrote a UVM environment for the FIFO (driver, monitor, sequencer, scoreboard, agent, coverage); its regression has not been run yet."
+    { year:"2024", title:"Digital Design Building Blocks", link:"https://github.com/sujeeth2003/rtl-digital-design", teaser:"Adders, ALU, FIFOs, a clock-domain-crossing bridge and an AXI-Lite peripheral in SystemVerilog, tested with random inputs against C++ models.", tags:["SystemVerilog","CXXRTL","CDC","AXI-Lite"], bullets:[
+      "Tested the ALU and the sync FIFO with random operations against independent C++ models.",
+      "Tested the multiplier and priority encoder on every possible input, and the async FIFO across two independently jittered clocks.",
+      "Built the clock-domain-crossing bridge with Gray-coded pointers and an AXI-Lite slave with VALID/READY handshakes."
     ]},
-    { year:"2026", title:"RISC-V on an FPGA: Timing Closure and Formal Equivalence", link:"https://github.com/sujeeth2003/rtl-digital-design", linkText:"Tier 4 on GitHub", teaser:"The pipelined core placed and routed for a Lattice ECP5, with Fmax raised from 56 to 77 MHz and gate-level synthesis proven equivalent to the RTL.", tags:["SystemVerilog","ECP5","nextpnr","Yosys","Formal"], bullets:[
+    { year:"2026", title:"RISC-V on an FPGA: Timing Closure", link:"https://github.com/sujeeth2003/rtl-digital-design", linkText:"On GitHub", teaser:"The pipelined core placed and routed for a Lattice ECP5, with Fmax raised from 56 to 77 MHz by fixing the critical path.", tags:["SystemVerilog","ECP5","nextpnr","Yosys"], bullets:[
       "Read the nextpnr critical path and fixed the worst offender each round: reset only control bits on a flush, one subtraction for both compares, LUT RAM instead of block RAM, forwarding selects computed a stage early.",
-      "Re-ran co-simulation against a golden instruction-set simulator after every change (8 directed + 200 random hazard-stress programs match).",
-      "Proved the gate-level netlists of the ALU, adders, shifter and hazard unit equivalent to their RTL. Built the bitstream; not yet run on a board."
+      "Re-ran co-simulation against a golden instruction-set simulator after every change. Built the bitstream; not yet run on a board."
     ]},
   ],
 
@@ -263,7 +259,7 @@ const FIELD_PROJECTS = {
 /* ---- technical skills grid ---- */
 const SKILLS = [
   { label:"Systems / Low-Latency", items:"C++, atomics, lock-free structures, AVX2, kernel bypass, core pinning, distributed systems (GFS-style replication)" },
-  { label:"RTL / Hardware",        items:"SystemVerilog, UVM, SVA, formal verification (SymbiYosys), AXI-Lite, CDC, FPGA flow (Yosys, nextpnr), timing closure" },
+  { label:"RTL / Hardware",        items:"SystemVerilog, AXI-Lite, CDC, FPGA flow (Yosys, nextpnr), timing closure" },
   { label:"Quant / Finance",       items:"HMM regime detection, backtesting, walk-forward validation, Python" },
   { label:"Deep Learning",         items:"PyTorch, TensorFlow, Hugging Face, transformer architectures" },
   { label:"LLM Systems",           items:"LangChain, LangGraph, RAG, prompt engineering" },
