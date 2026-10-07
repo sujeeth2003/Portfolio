@@ -276,7 +276,7 @@ const EXPERIENCE = [
     "Tuned the control code for predictable latency with cache-line padding, SIMD-friendly data layouts and branchless comparisons.",
     "Added a PLC trip path so any single out-of-bounds signal can cut power to the valve on its own.",
     "Wrote analysis tools in C++ and LabVIEW (filters, FFT, anomaly detection) for ISRO engineers, with live graphs fed from shared memory.",
-    "Set up the data store (Redis for recent data, SQL Server archive, AWS backups), programmed Siemens and Rockwell PLCs, and validated the system with a 48-hour burn test.",
+    "Set up the data store (Redis for recent data, SQL Server archive), programmed Siemens and Rockwell PLCs, and validated the system with a 48-hour burn test.",
   ]},
 ];
 
