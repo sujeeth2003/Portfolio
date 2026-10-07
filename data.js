@@ -42,6 +42,7 @@ const SITE = {
     data:{ nav:"Data", pill:"Data &amp; Industrial", eyebrow:"Arc 5 - Data Engineering &amp; Industrial Systems", title:"From sensor data to production pipelines" },
   },
 
+  experience:{ eyebrow:"Experience", title:"Work experience" },
   skills:{ eyebrow:"Skills", title:"Technical stack" },
   education:{ eyebrow:"Education", title:"Academic background" },
   learnedFrom:{ eyebrow:"Credit where it's due", title:"YouTube channels I learned from" },
@@ -118,7 +119,7 @@ const FLAGSHIPS = {
     linkText:"View on GitHub &#8599;", linkHref:"https://github.com/sujeeth2003/deepseek-llm-from-scratch",
   },
   data: {
-    title:"Work Experience: Anomaly Detection on Rocket-Test Sensor Data",
+    title:"Anomaly Detection on Rocket-Test Sensor Data",
     lede:"At Gantner Instruments, I built a real-time anomaly-detection pipeline for sensor data from ISRO thruster test stands, from PLC wiring to model inference.",
     stats:[ {value:"PLC &rarr; ML",label:"wiring to inference, end to end"}, {value:"2",label:"anomaly models: Isolation Forest, LSTM"} ],
     bullets:[
@@ -266,6 +267,17 @@ const SKILLS = [
   { label:"Data Engineering",      items:"AWS (S3, Lambda, Athena, Step Functions), PostgreSQL, MongoDB, Redis" },
   { label:"Industrial Systems",    items:"PLC programming (Siemens, Rockwell), Modbus, SCADA/HMI, DAQ, sensors, real-time control" },
   { label:"Languages",             items:"Python, C++, SQL, MATLAB, Embedded C, Verilog/SystemVerilog" },
+];
+
+/* ---- work experience ---- */
+const EXPERIENCE = [
+  { role:"High-Performance Systems Developer", org:"Gantner Instruments", place:"Chennai, India", meta:"Jan 2024 - Aug 2025", bullets:[
+    "Built a real-time safety-shutdown system for satellite thruster testing: a C++ control loop on RTX64 with two dedicated CPU cores, one for EtherCAT sensor I/O and one for calculation and safety logic.",
+    "Tuned the control code for predictable latency with cache-line padding, SIMD-friendly data layouts and branchless comparisons.",
+    "Added a PLC trip path so any single out-of-bounds signal can cut power to the valve on its own.",
+    "Wrote analysis tools in C++ and LabVIEW (filters, FFT, anomaly detection) for ISRO engineers, with live graphs fed from shared memory.",
+    "Set up the data store (Redis for recent data, SQL Server archive, AWS backups), programmed Siemens and Rockwell PLCs, and validated the system with a 48-hour burn test.",
+  ]},
 ];
 
 /* ---- education ---- */

@@ -13,6 +13,7 @@ const REM_MESSAGES = {
   ml:"He taught it to think. Patiently.",
   data:"Someone must listen closely. He did.",
   skills:"All his tools, kept sharp and ready.",
+  experience:"He kept a satellite safe, to the millisecond. I was watching.",
   education:"Where he learned to become this capable.",
   contact:"Impressed? Do reach out. I'll notice.",
 };

@@ -346,6 +346,22 @@ main{position:relative;z-index:1}
 .edu-degree{font-size:.76rem;color:var(--dim);margin-top:.1rem}
 .edu-meta{font-family:'JetBrains Mono', monospace;font-size:.62rem;color:var(--muted);text-align:right;line-height:1.5}
 
+/* EXPERIENCE */
+.exp-list{margin-top:.5rem;display:flex;flex-direction:column;gap:1rem;max-width:760px}
+.exp-row{
+  padding:1.1rem 1.3rem;border-radius:var(--radius);
+  background:linear-gradient(100deg,color-mix(in srgb,var(--accent) 8%,var(--card)),var(--card));
+  border:1px solid var(--line);border-left:3px solid var(--accent);
+  backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 8px 24px rgba(24,34,51,.08);
+}
+.exp-head{display:flex;align-items:baseline;justify-content:space-between;gap:.85rem;flex-wrap:wrap}
+.exp-role{font-family:'Zen Kaku Gothic New', sans-serif;font-weight:700;font-size:.9rem}
+.exp-org{font-size:.78rem;color:var(--dim);margin-top:.1rem}
+.exp-meta{font-family:'JetBrains Mono', monospace;font-size:.62rem;color:var(--muted);white-space:nowrap}
+.exp-bullets{margin:.6rem 0 0;padding-left:1.1rem;font-size:.8rem;color:var(--dim);line-height:1.6}
+.exp-bullets li{margin-bottom:.3rem}
+
 /* CONTACT / FOOTER */
 .contact-section{padding:6rem 0 4rem;border-top:1px solid var(--line);text-align:center}
 .contact-section h2{font-family:'Zen Kaku Gothic New', sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.02em;margin-bottom:1rem}
@@ -541,6 +557,14 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem;border-top:1px
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
+  <section class="skills-section" id="experience" style="padding-top:2.6rem">
+    <div class="wrap">
+      <div class="field-head"><div><div class="field-eyebrow" style="color:var(--dim)" id="experience-eyebrow"></div><div class="field-title parallax" data-speed="0.06" id="experience-title"></div></div></div>
+      <div class="exp-list reveal" id="exp-list"></div>
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section class="skills-section" id="education" style="padding-top:2.6rem">
     <div class="wrap">
@@ -612,6 +636,8 @@ FIELD_ID_LIST.forEach(id=>{
 
 document.getElementById('skills-eyebrow').textContent=SITE.skills.eyebrow;
 document.getElementById('skills-title').textContent=SITE.skills.title;
+document.getElementById('experience-eyebrow').textContent=SITE.experience.eyebrow;
+document.getElementById('experience-title').textContent=SITE.experience.title;
 document.getElementById('education-eyebrow').textContent=SITE.education.eyebrow;
 document.getElementById('education-title').textContent=SITE.education.title;
 document.getElementById('learned-from-eyebrow').textContent=SITE.learnedFrom.eyebrow;
@@ -676,6 +702,23 @@ const skillsGrid=document.getElementById('skills-grid');
 if(skillsGrid){
   skillsGrid.innerHTML=SKILLS.map(s=>`
     <div class="card skill-block"><div class="skill-label">${s.label}</div><div class="skill-items">${s.items}</div></div>
+  `).join('');
+}
+
+/* ═══ experience, from EXPERIENCE in data.js ═══ */
+const expList=document.getElementById('exp-list');
+if(expList){
+  expList.innerHTML=EXPERIENCE.map(e=>`
+    <div class="exp-row">
+      <div class="exp-head">
+        <div>
+          <div class="exp-role">${e.role}</div>
+          <div class="exp-org">${e.org} &middot; ${e.place}</div>
+        </div>
+        <div class="exp-meta">${e.meta}</div>
+      </div>
+      <ul class="exp-bullets">${e.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+    </div>
   `).join('');
 }
 
@@ -884,8 +927,8 @@ function sayFor(id){
 if(SHOW_REM) try{
   const mascotObs=new IntersectionObserver(es=>{
     es.forEach(e=>{if(e.isIntersecting) sayFor(e.target.id);});
-  },{threshold:.4});
-  ['home','systems','hardware','quant','ml','data','skills','education','contact'].forEach(id=>{
+  },{threshold:0,rootMargin:"-45% 0px -45% 0px"});
+  ['home','systems','hardware','quant','ml','data','skills','experience','education','contact'].forEach(id=>{
     const el=document.getElementById(id);
     if(el) mascotObs.observe(el);
   });
